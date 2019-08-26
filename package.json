@@ -35,8 +35,9 @@
     "lint:eslint:fix": "eslint --fix --report-unused-disable-directives **/*.{js,ts,tsx}",
     "lint:prettier:fix": "prettier --write **/*.{js,ts,tsx,json,md,yml,yaml}",
     "prebuild": "rimraf dist",
-    "type-check": "tsc --noEmit --pretty",
-    "test": "node scripts/test.js"
+    "release": "standard-version",
+    "test": "node scripts/test.js",
+    "type-check": "tsc --noEmit --pretty"
   },
   "dependencies": {
     "node-polyglot": "^2.3.1"
