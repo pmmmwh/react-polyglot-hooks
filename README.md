@@ -69,7 +69,7 @@ import { useLocale, useTranslate } from 'react-polyglot-hooks';
 
 export default function Child() {
   const locale = useLocale(); // Current locale: "en"
-  const t = useTranslate(); // Translate function, takes a phrase key
+  const t = useTranslate(); // Translate function, see below
 
   return (
     <React.Fragment>
