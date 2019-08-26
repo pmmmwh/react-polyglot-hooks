@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import Polyglot from 'node-polyglot';
 
-const NoOp = (key?: string): string | undefined => {
+const NoOp = (key: string): string => {
   console.error(
     'Warning: t is called without Polyglot context. Perhaps you need to wrap the component in <I18n>?'
   );
