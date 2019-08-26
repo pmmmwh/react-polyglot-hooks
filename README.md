@@ -111,11 +111,11 @@ Returns the current active locale (`string`).
 
 Returns a special function (`t`) which takes in parameters and returns a phrase.
 
-#### `t(key, InterpolationOptions)`
+#### `t(phrase, InterpolationOptions)`
 
 | Param                  | Type                                    | Required | Description                                                                                                |
 | ---------------------- | --------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `key`                  | `string`                                | ✅       | Key of the needed phrase.                                                                                  |
+| `phrase`               | `string`                                | ✅       | Key of the needed phrase.                                                                                  |
 | `InterpolationOptions` | `number` or `{ [key: string]: string }` | ❌       | A number to be interpolated with `smart_count`, or a key-value pair to interpolate values into the phrase. |
 
 For more details, please visit the [documentation](https://airbnb.io/polyglot.js) of Polyglot.js.
