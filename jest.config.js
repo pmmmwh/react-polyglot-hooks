@@ -1,6 +1,7 @@
 module.exports = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!src/**/*.d.ts'],
+  coverageDirectory: 'coverage',
   setupFilesAfterEnv: [],
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.{js,ts,tsx}',
