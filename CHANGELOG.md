@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.0...v0.1.1) (2019-08-26)
+
+### Bug Fixes
+
+- **deps-dev:** fix lock file mismatch ([80da34d](https://github.com/pmmmwh/react-polyglot-hooks/commit/80da34d))
+- **polyglot:** make key in NoOp required ([37d68d3](https://github.com/pmmmwh/react-polyglot-hooks/commit/37d68d3))
+- **publish:** properly distribute with the dist folder ([0b58f6f](https://github.com/pmmmwh/react-polyglot-hooks/commit/0b58f6f))
+
 ## 0.1.0 (2019-08-26)
 
 ### Features
