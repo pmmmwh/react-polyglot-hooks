@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.1...v0.1.2) (2019-08-27)
+
+### Features
+
+- **polyglot:** add T component for easy phrase consumption ([6d6d32c](https://github.com/pmmmwh/react-polyglot-hooks/commit/6d6d32c))
+
 ### [0.1.1](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.0...v0.1.1) (2019-08-26)
 
 ### Bug Fixes

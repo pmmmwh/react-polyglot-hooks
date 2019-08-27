@@ -29,8 +29,8 @@ yarn add react-polyglot-hooks
 
 ## Usage
 
-React Polyglot Hooks offers 1 wrapper component: `<I18n>` and 2 hooks: `useLocale` and `useTranslate`.
-The hooks have to be wrapped with the `<I18n>` component to work properly.
+React Polyglot Hooks offers 1 wrapper component: `<I18n>`, 2 hooks: `useLocale` and `useTranslate` and 1 helper component: `<T>`
+The hooks and the helper component have to be wrapped with the `<I18n>` component to work properly.
 
 Here is a quick example to get you started:
 First, wrap a parent component with `<I18n>` and provide `locale` and `phrases`.
@@ -66,16 +66,14 @@ Then, in a child component, call the hooks:
 
 ```jsx
 import React from 'react';
-import { useLocale, useTranslate } from 'react-polyglot-hooks';
+import { T, useLocale } from 'react-polyglot-hooks';
 
 export default function Child() {
   const locale = useLocale(); // Current locale: "en"
-  const t = useTranslate(); // Translate function, see below
-
   return (
     <React.Fragment>
       <span>{locale}</span>
-      <span>{t('hello')}</span>
+      <T phrase="hello" />
     </React.Fragment>
   );
 }
@@ -103,6 +101,17 @@ Provides i18n context to the hooks. Accepts all options supported by [Polyglot.j
 | `allowMissing`  | `boolean`                                                                | ❌       | Controls whether missing keys in a `t` call is allowed.                           |
 | `onMissingKey`  | `(key: string, options: InterpolationOptions, locale: string) => string` | ❌       | A function called when `allowMissing` is `true` and a missing key is encountered. |
 | `interpolation` | `{ prefix: string, suffix: string }`                                     | ❌       | Controls the prefix and suffix for an interpolation.                              |
+
+### `<T>`
+
+Renders a phrase according to the props.
+
+#### Props
+
+| Props     | Type                                    | Required | Description                       |
+| --------- | --------------------------------------- | -------- | --------------------------------- |
+| `phrase`  | `string`                                | ✅       | Key of the needed phrase.         |
+| `options` | `number` or `{ [key: string]: string }` | ❌       | See `InterpolationOptions` below. |
 
 ### `useLocale`
 
