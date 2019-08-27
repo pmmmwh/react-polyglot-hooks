@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.3](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.2...v0.1.3) (2019-08-27)
 
+### Bug Fixes
+
 - **publish:** fix missing dist folder in v0.1.2 ([7783d6b](https://github.com/pmmmwh/react-polyglot-hooks/commit/7783d6b))
 
 ### [0.1.2](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.1...v0.1.2) (2019-08-27)
