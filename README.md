@@ -5,6 +5,9 @@ Hooks for using [Polyglot.js](https://airbnb.io/polyglot.js) with [React](https:
 [![npm Package](https://img.shields.io/npm/v/react-polyglot-hooks/latest.svg)](https://www.npmjs.com/package/react-polyglot-hooks)
 [![CircleCI](https://img.shields.io/circleci/project/github/pmmmwh/react-polyglot-hooks/master.svg)](https://circleci.com/gh/pmmmwh/react-polyglot-hooks/tree/master)
 [![Coverage Status](https://img.shields.io/codecov/c/github/pmmmwh/react-polyglot-hooks/master.svg)](https://codecov.io/gh/pmmmwh/react-polyglot-hooks/branch/master)
+[![Minified Size](https://img.shields.io/bundlephobia/min/react-polyglot-hooks)](https://bundlephobia.com/result?p=react-polyglot-hooks@latest)
+[![Min-zipped Size](https://img.shields.io/bundlephobia/minzip/react-polyglot-hooks)](https://bundlephobia.com/result?p=react-polyglot-hooks@latest)
+
 ![Code Style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=pmmmwh/react-polyglot-hooks)](https://dependabot.com)
