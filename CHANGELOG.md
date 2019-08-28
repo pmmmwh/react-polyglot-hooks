@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.3...v0.2.0) (2019-08-28)
+
+### Bug Fixes
+
+- **i18n:** allow consumption of t options ([0e9371b](https://github.com/pmmmwh/react-polyglot-hooks/commit/0e9371b))
+- **t:** rename options to interpolations ([88d58df](https://github.com/pmmmwh/react-polyglot-hooks/commit/88d58df))
+
+### Features
+
+- **t:** add a fallback prop for easier consumption ([f919872](https://github.com/pmmmwh/react-polyglot-hooks/commit/f919872))
+
 ### [0.1.3](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.2...v0.1.3) (2019-08-27)
 
 ### Bug Fixes
