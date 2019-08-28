@@ -32,7 +32,7 @@ yarn add react-polyglot-hooks
 
 ## Usage
 
-React Polyglot Hooks offers 1 wrapper component: `<I18n>`, 2 hooks: `useLocale` and `useTranslate` and 1 helper component: `<T>`
+React Polyglot Hooks offers 1 wrapper component: `<I18n>`, 2 hooks: `useLocale` and `useTranslate` and 1 helper component: `<T>`.
 The hooks and the helper component have to be wrapped with the `<I18n>` component to work properly.
 
 Here is a quick example to get you started:
