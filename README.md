@@ -101,7 +101,7 @@ Provides i18n context to the hooks. Accepts all options supported by [Polyglot.j
 | `children`      | `Node`                                                                   | ✅       | Any node(s) accepted by React.                                                    |
 | `locale`        | `string`                                                                 | ✅       | Current locale, used for pluralization.                                           |
 | `phrases`       | `{ [key: string]: string }`                                              | ✅       | Key-value pair of translated phrases, can be nested.                              |
-| `allowMissing`  | `boolean`                                                                | ❌       | Controls whether missing keys in a `t` call is allowed.                           |
+| `allowMissing`  | `boolean`                                                                | ❌       | Controls whether missing phrase keys in a `t` call is allowed.                    |
 | `onMissingKey`  | `(key: string, options: InterpolationOptions, locale: string) => string` | ❌       | A function called when `allowMissing` is `true` and a missing key is encountered. |
 | `interpolation` | `{ prefix: string, suffix: string }`                                     | ❌       | Controls the prefix and suffix for an interpolation.                              |
 
@@ -111,10 +111,11 @@ Renders a phrase according to the props.
 
 #### Props
 
-| Props     | Type                                    | Required | Description                       |
-| --------- | --------------------------------------- | -------- | --------------------------------- |
-| `phrase`  | `string`                                | ✅       | Key of the needed phrase.         |
-| `options` | `number` or `{ [key: string]: string }` | ❌       | See `InterpolationOptions` below. |
+| Props            | Type                                    | Required | Description                                         |
+| ---------------- | --------------------------------------- | -------- | --------------------------------------------------- |
+| `phrase`         | `string`                                | ✅       | Key of the needed phrase.                           |
+| `fallback`       | `string`                                | ❌       | A fallback to be rendered if the phrase is missing. |
+| `interpolations` | `number` or `{ [key: string]: string }` | ❌       | See `InterpolationOptions` below.                   |
 
 ### `useLocale`
 
