@@ -16,6 +16,8 @@ const I18n: React.FC<I18nProps> = ({
   interpolation,
 }) => {
   const polyglot = React.useMemo<Polyglot>(
+    // Create a new instance on every change
+    // This make sure we always consume the latest phrases and Polyglot context
     () =>
       new Polyglot({
         locale,
