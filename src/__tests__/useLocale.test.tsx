@@ -3,20 +3,23 @@ import { renderHook } from '@testing-library/react-hooks';
 import { I18n, useLocale } from '..';
 
 describe('Use Locale', () => {
-  it('should be undefined without context', () => {
-    const { result } = renderHook(() => useLocale());
+  describe('when context is not provided', () => {
+    it('should return undefined', () => {
+      const { result } = renderHook(() => useLocale());
 
-    expect(result.current).toBe(undefined);
+      expect(result.current).toBe(undefined);
+    });
   });
 
-  it('should be current locale with context', () => {
-    const wrapper: React.FC = ({ children }) => (
-      <I18n locale="en" phrases={{}}>
-        {children}
-      </I18n>
-    );
-    const { result } = renderHook(() => useLocale(), { wrapper });
-
-    expect(result.current).toBe('en');
+  describe('when context is provided', () => {
+    it('should return I18n locale', () => {
+      const wrapper: React.FC = ({ children }) => (
+        <I18n locale="en" phrases={{}}>
+          {children}
+        </I18n>
+      );
+      const { result } = renderHook(() => useLocale(), { wrapper });
+      expect(result.current).toBe('en');
+    });
   });
 });
