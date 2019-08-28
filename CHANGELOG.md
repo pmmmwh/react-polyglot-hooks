@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 - **i18n:** allow consumption of t options ([0e9371b](https://github.com/pmmmwh/react-polyglot-hooks/commit/0e9371b))
-- **t:** rename options to interpolations ([88d58df](https://github.com/pmmmwh/react-polyglot-hooks/commit/88d58df))
+- **t:** BREAKING - rename options to interpolations ([88d58df](https://github.com/pmmmwh/react-polyglot-hooks/commit/88d58df))
 
 ### Features
 
