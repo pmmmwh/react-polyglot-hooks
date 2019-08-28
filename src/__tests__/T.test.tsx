@@ -73,7 +73,7 @@ describe('T Component', () => {
       const { getByText, queryByText } = render(tree);
       expect(queryByText(/^Interpolated: /)).not.toBeInTheDocument();
       expect(getByText(/^Fallback: /)).toBeInTheDocument();
-      expect(getByText(/^Fallback: /)).toHaveTextContent('Fallback: Success!');
+      expect(getByText(/^Fallback: /).textContent).toBe('Fallback: Success!');
     });
 
     it('should not interpolate values without a fallback', () => {
@@ -86,7 +86,7 @@ describe('T Component', () => {
       expect(queryByText(/^Interpolated: /)).not.toBeInTheDocument();
       expect(queryByText(/Success!/)).not.toBeInTheDocument();
       expect(getByText('unavailable')).toBeInTheDocument();
-      expect(getByText('unavailable')).toHaveTextContent('unavailable');
+      expect(getByText('unavailable').textContent).toBe('unavailable');
     });
   });
 
@@ -122,7 +122,7 @@ describe('T Component', () => {
       );
       const { getByText } = render(tree);
       expect(getByText(/^Interpolated: /)).toBeInTheDocument();
-      expect(getByText(/^Interpolated: /)).toHaveTextContent(
+      expect(getByText(/^Interpolated: /).textContent).toBe(
         'Interpolated: Success!'
       );
     });
