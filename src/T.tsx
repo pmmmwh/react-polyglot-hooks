@@ -4,21 +4,23 @@ import useTranslate from './useTranslate';
 
 export interface TProps {
   fallback?: string;
-  options?: number | InterpolationOptions;
+  interpolations?: number | InterpolationOptions;
   phrase: string;
 }
 
-const T: React.FC<TProps> = ({ fallback, options, phrase }) => {
+const T: React.FC<TProps> = ({ fallback, interpolations, phrase }) => {
   const t = useTranslate();
 
   const tOptions = {
     // Check for a fallback prop before assigning it as it will alter the options
     ...(fallback ? { _: fallback } : undefined),
     // Check for existence of the interpolations prop
-    ...(options &&
+    ...(interpolations &&
       // Handles smart_count from a number
       // This allows the fallback to be safely assigned
-      (typeof options === 'number' ? { smart_count: options } : options)),
+      (typeof interpolations === 'number'
+        ? { smart_count: interpolations }
+        : interpolations)),
   };
 
   // HACK: A workaround for the current limitations of TSX with FC
