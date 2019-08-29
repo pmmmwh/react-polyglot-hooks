@@ -1,7 +1,7 @@
 import { createContext } from 'react';
-import { NO_POLYGLOT_CONTEXT, t } from './constants';
+import { NO_POLYGLOT_CONTEXT, PolyglotT } from './constants';
 
-function warnWithoutContext(...[key]: Parameters<t>): string {
+function warnWithoutContext(...[key]: Parameters<PolyglotT>): string {
   if (process.env.NODE_ENV !== 'production') {
     console.error(NO_POLYGLOT_CONTEXT);
   }
@@ -10,7 +10,7 @@ function warnWithoutContext(...[key]: Parameters<t>): string {
 
 export interface I18nContextProps {
   locale: string | undefined;
-  t: t;
+  t: PolyglotT;
 }
 
 const I18nContext = createContext<I18nContextProps>({

@@ -1,6 +1,6 @@
 import Polyglot from 'node-polyglot';
 
-export type t = typeof Polyglot.prototype.t;
+export type PolyglotT = typeof Polyglot.prototype.t;
 
 // TODO: Remove after deprecation of number from interpolations in v0.3.0
 export const NO_NUMBER_INTERPOLATIONS = [
