@@ -5,6 +5,7 @@ import I18n from '../I18n';
 import T from '../T';
 
 describe('T Component', () => {
+  const originalConsoleWarn = console.warn;
   const originalConsoleError = console.error;
 
   let consoleOutput: string[] = [];
@@ -12,11 +13,15 @@ describe('T Component', () => {
     console.error = (...args: string[]): void => {
       args.forEach(arg => consoleOutput.push(arg));
     };
+    console.warn = (...args: string[]): void => {
+      args.forEach(arg => consoleOutput.push(arg));
+    };
   });
 
   afterEach(() => {
     consoleOutput = [];
     console.error = originalConsoleError;
+    console.warn = originalConsoleWarn;
   });
 
   describe('when context is not provided', () => {
@@ -72,28 +77,9 @@ describe('T Component', () => {
           </I18n>
         );
         const { getByText, queryByText } = render(tree);
-        expect(queryByText(/^Interpolated: /)).not.toBeInTheDocument();
+        expect(queryByText(/^Interpolated:/)).not.toBeInTheDocument();
         expect(getByText(/^Fallback: /)).toBeInTheDocument();
         expect(getByText(/^Fallback: /).textContent).toBe('Fallback: Success!');
-      });
-
-      it('should interpolate number as smart count to a fallback', () => {
-        const tree = (
-          <I18n
-            locale="en"
-            phrases={{ phrase: 'Interpolated: %{smart_count}' }}
-          >
-            <T
-              phrase="unavailable"
-              fallback="Fallback: %{smart_count}"
-              interpolations={1}
-            />
-          </I18n>
-        );
-        const { getByText, queryByText } = render(tree);
-        expect(queryByText(/^Interpolated: /)).not.toBeInTheDocument();
-        expect(getByText(/^Fallback: /)).toBeInTheDocument();
-        expect(getByText(/^Fallback: /).textContent).toBe('Fallback: 1');
       });
 
       it('should not interpolate values without a fallback', () => {
@@ -103,10 +89,25 @@ describe('T Component', () => {
           </I18n>
         );
         const { getByText, queryByText } = render(tree);
-        expect(queryByText(/^Interpolated: /)).not.toBeInTheDocument();
+        expect(queryByText(/^Interpolated:/)).not.toBeInTheDocument();
         expect(queryByText(/Success!/)).not.toBeInTheDocument();
         expect(getByText('unavailable')).toBeInTheDocument();
         expect(getByText('unavailable').textContent).toBe('unavailable');
+      });
+
+      it('should allow interpolations to override fallback', () => {
+        const tree = (
+          <I18n locale="en" phrases={{ phrase: 'Message' }}>
+            <T
+              phrase="unavailable"
+              fallback="Incorrect"
+              interpolations={{ _: 'Fallback' }}
+            />
+          </I18n>
+        );
+        const { getByText, queryByText } = render(tree);
+        expect(queryByText('Incorrect')).not.toBeInTheDocument();
+        expect(getByText('Fallback')).toBeInTheDocument();
       });
     });
 
@@ -141,13 +142,13 @@ describe('T Component', () => {
           </I18n>
         );
         const { getByText } = render(tree);
-        expect(getByText(/^Interpolated: /)).toBeInTheDocument();
-        expect(getByText(/^Interpolated: /).textContent).toBe(
+        expect(getByText(/^Interpolated:/)).toBeInTheDocument();
+        expect(getByText(/^Interpolated:/).textContent).toBe(
           'Interpolated: Success!'
         );
       });
 
-      it('should interpolate number as smart count', () => {
+      it('should interpolate number as smart count with deprecation warning', () => {
         const tree = (
           <I18n
             locale="en"
@@ -157,10 +158,41 @@ describe('T Component', () => {
           </I18n>
         );
         const { getByText } = render(tree);
-        expect(getByText(/^Interpolated: /)).toBeInTheDocument();
-        expect(getByText(/^Interpolated: /).textContent).toBe(
-          'Interpolated: 1'
+        expect(getByText(/^Interpolated:/)).toBeInTheDocument();
+        expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: 1');
+        expect(consoleOutput).toHaveLength(1);
+        expect(consoleOutput[0]).toBe(
+          'Use of the interpolations prop as a shorthand for smart_count have been deprecated in favor of the count prop and will be removed in the next major version. Please update your app to use that instead.'
         );
+      });
+
+      it('should interpolate count', () => {
+        const tree = (
+          <I18n
+            locale="en"
+            phrases={{ phrase: 'Interpolated: %{smart_count}' }}
+          >
+            <T phrase="phrase" count={1} />
+          </I18n>
+        );
+        const { getByText } = render(tree);
+        expect(getByText(/^Interpolated:/)).toBeInTheDocument();
+        expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: 1');
+      });
+
+      it('should allow interpolations to override count', () => {
+        const tree = (
+          <I18n
+            locale="en"
+            phrases={{ phrase: 'Interpolated: %{smart_count}' }}
+          >
+            <T phrase="phrase" count={1} interpolations={{ smart_count: 2 }} />
+          </I18n>
+        );
+        const { getByText, queryByText } = render(tree);
+        expect(queryByText(/1$/)).not.toBeInTheDocument();
+        expect(getByText(/^Interpolated:/)).toBeInTheDocument();
+        expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: 2');
       });
     });
   });
