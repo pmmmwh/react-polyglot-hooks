@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { InterpolationOptions } from 'node-polyglot';
+import { NO_NUMBER_INTERPOLATIONS } from './constants';
 import useTranslate from './useTranslate';
 
 export interface TProps {
@@ -20,12 +21,7 @@ const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
     // Handles number interpolation
     cleanInterpolations = { smart_count: interpolations };
     if (process.env.NODE_ENV !== 'production') {
-      console.warn(
-        [
-          'Use of the interpolations prop as a shorthand for smart_count have been deprecated in favor of the count prop and will be removed in the next major version.',
-          'Please update your app to use that instead.',
-        ].join(' ')
-      );
+      console.warn(NO_NUMBER_INTERPOLATIONS);
     }
   }
 
