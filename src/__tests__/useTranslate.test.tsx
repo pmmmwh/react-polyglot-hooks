@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { I18n, useTranslate } from '..';
+import { NO_POLYGLOT_CONTEXT } from '../constants';
 
 describe('Use Translate', () => {
   const originalConsoleError = console.error;
@@ -28,9 +29,7 @@ describe('Use Translate', () => {
       const callResult = result.current('phrase');
       expect(callResult).toBe('phrase');
       expect(consoleOutput).toHaveLength(1);
-      expect(consoleOutput[0]).toBe(
-        'Warning: t is called without Polyglot context. Perhaps you need to wrap the component in <I18n>?'
-      );
+      expect(consoleOutput[0]).toBe(NO_POLYGLOT_CONTEXT);
     });
   });
 

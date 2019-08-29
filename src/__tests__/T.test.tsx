@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import I18n from '../I18n';
-import T from '../T';
+import { I18n, T } from '..';
+import { NO_NUMBER_INTERPOLATIONS, NO_POLYGLOT_CONTEXT } from '../constants';
 
 describe('T Component', () => {
   const originalConsoleWarn = console.warn;
@@ -29,9 +29,7 @@ describe('T Component', () => {
       const { getByText } = render(<T phrase="phrase" />);
       expect(getByText('phrase')).toBeInTheDocument();
       expect(consoleOutput).toHaveLength(1);
-      expect(consoleOutput[0]).toBe(
-        'Warning: t is called without Polyglot context. Perhaps you need to wrap the component in <I18n>?'
-      );
+      expect(consoleOutput[0]).toBe(NO_POLYGLOT_CONTEXT);
     });
   });
 
@@ -161,9 +159,7 @@ describe('T Component', () => {
         expect(getByText(/^Interpolated:/)).toBeInTheDocument();
         expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: 1');
         expect(consoleOutput).toHaveLength(1);
-        expect(consoleOutput[0]).toBe(
-          'Use of the interpolations prop as a shorthand for smart_count have been deprecated in favor of the count prop and will be removed in the next major version. Please update your app to use that instead.'
-        );
+        expect(consoleOutput[0]).toBe(NO_NUMBER_INTERPOLATIONS);
       });
 
       it('should interpolate count', () => {
