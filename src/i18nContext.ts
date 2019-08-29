@@ -1,20 +1,21 @@
 import { createContext } from 'react';
-import Polyglot from 'node-polyglot';
+import { NO_POLYGLOT_CONTEXT, t } from './constants';
 
-const NoOp = (key: string): string => {
-  console.error(
-    'Warning: t is called without Polyglot context. Perhaps you need to wrap the component in <I18n>?'
-  );
+function warnWithoutContext(...[key]: Parameters<t>): string {
+  if (process.env.NODE_ENV !== 'production') {
+    console.error(NO_POLYGLOT_CONTEXT);
+  }
   return key;
-};
+}
 
 export interface I18nContextProps {
-  locale?: string;
-  t: typeof Polyglot.prototype.t | typeof NoOp;
+  locale: string | undefined;
+  t: t;
 }
 
 const I18nContext = createContext<I18nContextProps>({
-  t: NoOp,
+  locale: undefined,
+  t: warnWithoutContext,
 });
 
 export default I18nContext;
