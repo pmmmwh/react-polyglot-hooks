@@ -42,7 +42,7 @@ const I18n: React.FC<I18nProps> = ({
 
   return (
     <I18nContext.Provider value={polyglotContext}>
-      {React.Children.only(children)}
+      {polyglotContext.locale && children}
     </I18nContext.Provider>
   );
 };
