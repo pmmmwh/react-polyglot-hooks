@@ -28,18 +28,20 @@ const I18n: React.FC<I18nProps> = ({
       }),
     [locale, phrases, allowMissing, onMissingKey, interpolation]
   );
-  const t = React.useCallback(
-    // We use a named function here to aid debugging
-    function t(
-      key: string,
-      interpolations?: number | InterpolationOptions
-    ): string {
-      return polyglot.t(key, interpolations);
-    },
+
+  const polyglotContext = React.useMemo(
+    () => ({
+      locale: polyglot.locale(),
+      // We use a named function here to aid debugging
+      t(key: string, interpolations?: number | InterpolationOptions): string {
+        return polyglot.t(key, interpolations);
+      },
+    }),
     [polyglot]
   );
+
   return (
-    <I18nContext.Provider value={{ locale: polyglot.locale(), t }}>
+    <I18nContext.Provider value={polyglotContext}>
       {React.Children.only(children)}
     </I18nContext.Provider>
   );
