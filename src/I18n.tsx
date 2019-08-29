@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Polyglot, { InterpolationOptions, PolyglotOptions } from 'node-polyglot';
+import Polyglot, { PolyglotOptions } from 'node-polyglot';
+import { PolyglotT } from './constants';
 import I18nContext from './i18nContext';
 
 export interface I18nProps extends PolyglotOptions {
@@ -33,8 +34,8 @@ const I18n: React.FC<I18nProps> = ({
     () => ({
       locale: polyglot.locale(),
       // We use a named function here to aid debugging
-      t(key: string, interpolations?: number | InterpolationOptions): string {
-        return polyglot.t(key, interpolations);
+      t(...args: Parameters<PolyglotT>): ReturnType<PolyglotT> {
+        return polyglot.t(...args);
       },
     }),
     [polyglot]
