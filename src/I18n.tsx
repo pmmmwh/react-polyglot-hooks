@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Polyglot, { InterpolationOptions, PolyglotOptions } from 'node-polyglot';
+import Polyglot, { PolyglotOptions } from 'node-polyglot';
+import { PolyglotT } from './constants';
 import I18nContext from './i18nContext';
 
 export interface I18nProps extends PolyglotOptions {
@@ -28,19 +29,21 @@ const I18n: React.FC<I18nProps> = ({
       }),
     [locale, phrases, allowMissing, onMissingKey, interpolation]
   );
-  const t = React.useCallback(
-    // We use a named function here to aid debugging
-    function t(
-      key: string,
-      interpolations?: number | InterpolationOptions
-    ): string {
-      return polyglot.t(key, interpolations);
-    },
+
+  const polyglotContext = React.useMemo(
+    () => ({
+      locale: polyglot.locale(),
+      // We use a named function here to aid debugging
+      t(...args: Parameters<PolyglotT>): ReturnType<PolyglotT> {
+        return polyglot.t(...args);
+      },
+    }),
     [polyglot]
   );
+
   return (
-    <I18nContext.Provider value={{ locale: polyglot.locale(), t }}>
-      {React.Children.only(children)}
+    <I18nContext.Provider value={polyglotContext}>
+      {polyglotContext.locale && children}
     </I18nContext.Provider>
   );
 };

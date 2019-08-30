@@ -1,7 +1,8 @@
 import { useContext } from 'react';
-import I18nContext, { I18nContextProps } from './i18nContext';
+import { PolyglotT } from './constants';
+import I18nContext from './i18nContext';
 
-const useTranslate = (): I18nContextProps['t'] => {
+const useTranslate = (): PolyglotT => {
   const { t } = useContext(I18nContext);
   return t;
 };
