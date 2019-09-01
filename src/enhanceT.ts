@@ -4,7 +4,12 @@ import { PolyglotT } from './constants';
 // A pseudo-JSX string interpolation identifier
 const IDENTIFIER = /<(\d+)\/>/;
 
-const enhanceT = (originalT: PolyglotT) =>
+const enhanceT = (originalT: PolyglotT) => {
+  // An overload is included to aid with code auto-completion
+  function t(
+    key: Parameters<PolyglotT>[0],
+    interpolations?: Parameters<PolyglotT>[1]
+  ): ReactNode;
   // We use a named function here to aid debugging
   // ReactNode includes all React render-ables, including arrays
   function t(...[key, interpolations]: Parameters<PolyglotT>): ReactNode {
@@ -54,6 +59,9 @@ const enhanceT = (originalT: PolyglotT) =>
 
       return renderItems;
     }
-  };
+  }
+
+  return t;
+};
 
 export default enhanceT;
