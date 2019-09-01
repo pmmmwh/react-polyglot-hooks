@@ -11,24 +11,6 @@ describe('I18n Provider', () => {
     render(<I18n locale="" phrases={{}} />);
   });
 
-  it('should only pass locale and t to children via context', () => {
-    const readValue = spy();
-    const tree = (
-      <I18n locale="en" phrases={{}}>
-        <I18nContext.Consumer>
-          {values => <ValueTester callback={readValue} value={values} />}
-        </I18nContext.Consumer>
-      </I18n>
-    );
-    render(tree);
-    const calledValue = readValue.getCall(0).args[0];
-    expect(typeof calledValue).toBe('object');
-
-    const valueKeys = Object.keys(calledValue);
-    expect(valueKeys).toHaveLength(2);
-    expect(valueKeys).toStrictEqual(['locale', 't']);
-  });
-
   it('should provide a locale from Polyglot', () => {
     const tree = (
       <I18n locale="en" phrases={{}}>
@@ -65,6 +47,7 @@ describe('I18n Provider', () => {
     render(tree);
     const calledValue = readValue.getCall(0).args[0];
     expect(typeof calledValue).toBe('function');
+    expect(calledValue.toString()).toContain('function t');
     expect(calledValue('phrase')).toBe('Message');
   });
 
