@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { InterpolationOptions } from 'node-polyglot';
 import { NO_NUMBER_INTERPOLATIONS } from './constants';
-import useTranslate from './useTranslate';
+import useT from './useT';
 
 export interface TProps {
   count?: number;
@@ -11,7 +11,7 @@ export interface TProps {
 }
 
 const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
-  const t = useTranslate();
+  const t = useT();
 
   let cleanInterpolations;
   if (typeof interpolations !== 'number') {

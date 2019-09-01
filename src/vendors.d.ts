@@ -1,4 +1,5 @@
 // Override Type definitions for node-polyglot v2.3.1
+// TODO: Remove after PR is merged in DefinitelyTyped
 import { InterpolationOptions, PolyglotOptions } from 'node-polyglot';
 
 declare module 'node-polyglot' {
