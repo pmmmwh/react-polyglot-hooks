@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Polyglot, { PolyglotOptions } from 'node-polyglot';
-import { PolyglotT } from './constants';
+import enhanceT from './enhanceT';
 import I18nContext from './i18nContext';
 
 export interface I18nProps extends PolyglotOptions {
@@ -33,10 +33,7 @@ const I18n: React.FC<I18nProps> = ({
   const polyglotContext = React.useMemo(
     () => ({
       locale: polyglot.locale(),
-      // We use a named function here to aid debugging
-      t(...args: Parameters<PolyglotT>): ReturnType<PolyglotT> {
-        return polyglot.t(...args);
-      },
+      t: enhanceT(polyglot.t.bind(polyglot)),
     }),
     [polyglot]
   );
