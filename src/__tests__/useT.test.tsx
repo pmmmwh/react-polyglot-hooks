@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
-import { I18n, useTranslate } from '..';
+import { I18n, useT } from '..';
 import { NO_POLYGLOT_CONTEXT } from '../constants';
 
-describe('Use Translate', () => {
+describe('Use T', () => {
   const originalConsoleError = console.error;
 
   let consoleOutput: string[] = [];
@@ -19,13 +19,13 @@ describe('Use Translate', () => {
   });
 
   it('should return a function', () => {
-    const { result } = renderHook(() => useTranslate());
+    const { result } = renderHook(() => useT());
     expect(typeof result.current).toBe('function');
   });
 
   describe('when context is not provided', () => {
     it('should return key on call and emit a warning', () => {
-      const { result } = renderHook(() => useTranslate());
+      const { result } = renderHook(() => useT());
       const callResult = result.current('phrase');
       expect(callResult).toBe('phrase');
       expect(consoleOutput).toHaveLength(1);
@@ -41,7 +41,7 @@ describe('Use Translate', () => {
             {children}
           </I18n>
         );
-        const { result } = renderHook(() => useTranslate(), { wrapper });
+        const { result } = renderHook(() => useT(), { wrapper });
         const callResult = result.current('unavailable');
         expect(callResult).toBe('unavailable');
         expect(consoleOutput).toHaveLength(1);
@@ -56,7 +56,7 @@ describe('Use Translate', () => {
             {children}
           </I18n>
         );
-        const { result } = renderHook(() => useTranslate(), { wrapper });
+        const { result } = renderHook(() => useT(), { wrapper });
         const callResult = result.current('unavailable', {
           message: 'Failed!',
         });
@@ -70,7 +70,7 @@ describe('Use Translate', () => {
             {children}
           </I18n>
         );
-        const { result } = renderHook(() => useTranslate(), { wrapper });
+        const { result } = renderHook(() => useT(), { wrapper });
         const callResult = result.current('unavailable', {
           _: 'Fallback: %{message}',
           message: 'Success!',
@@ -87,7 +87,7 @@ describe('Use Translate', () => {
             {children}
           </I18n>
         );
-        const { result } = renderHook(() => useTranslate(), { wrapper });
+        const { result } = renderHook(() => useT(), { wrapper });
         const callResult = result.current('phrase');
         expect(callResult).toBe('Message');
         expect(consoleOutput).toHaveLength(0);
@@ -99,7 +99,7 @@ describe('Use Translate', () => {
             {children}
           </I18n>
         );
-        const { result } = renderHook(() => useTranslate(), { wrapper });
+        const { result } = renderHook(() => useT(), { wrapper });
         const callResult = result.current('phrase', {
           message: 'Success!',
         });
