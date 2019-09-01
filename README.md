@@ -28,11 +28,11 @@ yarn add react-polyglot-hooks
 ```
 
 > React is required as a peer dependency.
-> Please install version 16.8.0 or later (minimum requirement for hooks).
+> Please install version 16.8.3 or later (minimum requirement for hooks).
 
 ## Usage
 
-React Polyglot Hooks offers 1 wrapper component: `<I18n>`, 2 hooks: `useLocale` and `useTranslate` and 1 helper component: `<T>`.
+React Polyglot Hooks offers 1 wrapper component: `<I18n>`, 2 hooks: `useLocale` and `useT` and 1 helper component: `<T>`.
 The hooks and the helper component have to be wrapped with the `<I18n>` component to work properly.
 
 Here is a quick example to get you started:
@@ -121,7 +121,7 @@ Renders a phrase according to the props.
 
 Returns the current active locale (`string`).
 
-### `useTranslate`
+### `useT`
 
 Returns a special function (`t`) which takes in parameters and returns a phrase.
 
