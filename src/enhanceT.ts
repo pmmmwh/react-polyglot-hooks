@@ -5,7 +5,7 @@ import { PolyglotT } from './constants';
 const IDENTIFIER = /<(\d+)\/>/;
 
 const enhanceT = (originalT: PolyglotT) => {
-  // An overload is included to aid with code auto-completion
+  // An overload is included to aid code auto-completion
   function t(
     key: Parameters<PolyglotT>[0],
     interpolations?: Parameters<PolyglotT>[1]
