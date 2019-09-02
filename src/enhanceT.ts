@@ -9,12 +9,12 @@ const enhanceT = (originalT: PolyglotT) => {
   function t(
     key: Parameters<PolyglotT>[0],
     interpolations?: Parameters<PolyglotT>[1]
-  ): ReactNode;
+  ): ReactElement;
   // We use a named function here to aid debugging
   // ReactNode includes all React render-ables, including arrays
-  function t(...[key, interpolations]: Parameters<PolyglotT>): ReactNode {
+  function t(...[key, interpolations]: Parameters<PolyglotT>): ReactElement {
     if (interpolations === undefined || typeof interpolations === 'number') {
-      return originalT(key, interpolations);
+      return (originalT(key, interpolations) as ReactNode) as ReactElement;
     } else {
       // ReactElement used because cloneElement requires a proper ReactElement
       const elementCache: ReactElement[] = [];
@@ -29,7 +29,7 @@ const enhanceT = (originalT: PolyglotT) => {
       const tString = originalT(key, interpolations);
       // We can safely return if no element interpolation is needed
       if (!elementCache.length) {
-        return tString;
+        return (tString as ReactNode) as ReactElement;
       }
 
       // Split the string into chunks of strings and interpolation indices
@@ -57,7 +57,7 @@ const enhanceT = (originalT: PolyglotT) => {
         }
       }
 
-      return renderItems;
+      return (renderItems as ReactNode) as ReactElement;
     }
   }
 
