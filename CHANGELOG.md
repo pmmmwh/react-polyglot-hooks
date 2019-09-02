@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0-0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.2.0...v0.3.0-0) (2019-09-02)
+
+### Bug Fixes
+
+- **t:** add type casting for fallback function return ([8e8e975](https://github.com/pmmmwh/react-polyglot-hooks/commit/8e8e975))
+- **t:** return ReactElement instead of ReactNode ([1eb60ca](https://github.com/pmmmwh/react-polyglot-hooks/commit/1eb60ca))
+- rename t type to PolyglotT ([786ed00](https://github.com/pmmmwh/react-polyglot-hooks/commit/786ed00))
+
+### Features
+
+- **i18n:** remove children.only but only render on polyglot mounted ([6e3eea8](https://github.com/pmmmwh/react-polyglot-hooks/commit/6e3eea8))
+- **t:** add a count prop as a shorthand to use smart_count ([0524125](https://github.com/pmmmwh/react-polyglot-hooks/commit/0524125))
+- **t:** add function overload to aid code auto completion ([a520de4](https://github.com/pmmmwh/react-polyglot-hooks/commit/a520de4))
+- **t:** implement polyglot enhancer to allow component interpolation ([7936f72](https://github.com/pmmmwh/react-polyglot-hooks/commit/7936f72))
+- **t:** update function types to enhanced t ([163a033](https://github.com/pmmmwh/react-polyglot-hooks/commit/163a033))
+- **t:** utilize new enhancer and type in i18n ([f5abaaf](https://github.com/pmmmwh/react-polyglot-hooks/commit/f5abaaf))
+- export PolyglotT type ([e582380](https://github.com/pmmmwh/react-polyglot-hooks/commit/e582380))
+
 ## [0.2.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.1.3...v0.2.0) (2019-08-28)
 
 ### Bug Fixes
