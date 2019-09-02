@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, ReactElement, ReactNode } from 'react';
 import { NO_POLYGLOT_CONTEXT, tFunction } from './constants';
 
 function warnWithoutContext(
@@ -7,7 +7,7 @@ function warnWithoutContext(
   if (process.env.NODE_ENV !== 'production') {
     console.error(NO_POLYGLOT_CONTEXT);
   }
-  return key;
+  return (key as ReactNode) as ReactElement;
 }
 
 export interface I18nContextProps {
