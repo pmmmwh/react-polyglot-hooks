@@ -3,11 +3,19 @@ import Polyglot, { PolyglotOptions } from 'node-polyglot';
 import enhanceT from './enhanceT';
 import I18nContext from './i18nContext';
 
+/**
+ * Props accepted by the I18n component.
+ */
 export interface I18nProps extends PolyglotOptions {
+  /** The current locale. */
   locale: string;
+  /** The current key-value map of phrases. */
   phrases: object;
 }
 
+/**
+ * A component to allow consumption of i18n props from any nested children.
+ */
 const I18n: React.FC<I18nProps> = ({
   children,
   locale,

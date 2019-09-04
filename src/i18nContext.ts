@@ -10,11 +10,17 @@ function warnWithoutContext(
   return (key as ReactNode) as ReactElement;
 }
 
+/**
+ * The props provided by I18nContext.
+ */
 export interface I18nContextProps {
   locale: string | undefined;
   t: tFunction;
 }
 
+/**
+ * The central store for i18n related components.
+ */
 const I18nContext = createContext<I18nContextProps>({
   locale: undefined,
   t: warnWithoutContext,

@@ -3,13 +3,23 @@ import { InterpolationOptions } from 'node-polyglot';
 import { NO_NUMBER_INTERPOLATIONS } from './constants';
 import useT from './useT';
 
+/**
+ * Props accepted by the T component.
+ */
 export interface TProps {
+  /** A count used for pluralization. */
   count?: number;
+  /** A fallback phrase to render when the provided key does not resolve. */
   fallback?: string;
+  /** A key-value map of components or strings to be interpolated. */
   interpolations?: number | InterpolationOptions;
+  /** The key of the phrase to render. */
   phrase: string;
 }
 
+/**
+ * A component to render a translated string.
+ */
 const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
   const t = useT();
 
