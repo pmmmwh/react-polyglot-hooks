@@ -1,10 +1,25 @@
 import { cloneElement, isValidElement, ReactElement, ReactNode } from 'react';
 import { PolyglotT } from './constants';
 
-// A pseudo-JSX string interpolation identifier
+/**
+ * A pseudo-JSX string interpolation identifier.
+ */
 const IDENTIFIER = /<(\d+)\/>/;
 
+/**
+ * An function to enhance Polyglot.js to allow React component interpolations.
+ *
+ * @param originalT The original t function from Polyglot.js.
+ * @returns The enhanced t function.
+ */
 const enhanceT = (originalT: PolyglotT) => {
+  /**
+   * The t function for translation.
+   *
+   * @param key The key of a translate phrase.
+   * @param interpolations The nodes to be interpolated to the phrase.
+   * @returns A string, or an array of components and strings.
+   */
   // An overload is included to aid code auto-completion
   function t(
     key: Parameters<PolyglotT>[0],

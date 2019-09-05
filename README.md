@@ -92,7 +92,7 @@ Types are baked in as the project is written in [TypeScript](https://www.typescr
 
 ### `<I18n>`
 
-Provides i18n context to the hooks. Accepts all options supported by [Polyglot.js](https://airbnb.io/polyglot.js).
+Provides i18n context to the T component and the hooks. Accepts all options supported by [Polyglot.js](https://airbnb.io/polyglot.js).
 
 #### Props
 
@@ -111,11 +111,12 @@ Renders a phrase according to the props.
 
 #### Props
 
-| Props            | Type                                    | Required | Description                                         |
-| ---------------- | --------------------------------------- | -------- | --------------------------------------------------- |
-| `phrase`         | `string`                                | ✅       | Key of the needed phrase.                           |
-| `fallback`       | `string`                                | ❌       | A fallback to be rendered if the phrase is missing. |
-| `interpolations` | `number` or `{ [key: string]: string }` | ❌       | See `InterpolationOptions` below.                   |
+| Props            | Type                   | Required | Description                                         |
+| ---------------- | ---------------------- | -------- | --------------------------------------------------- |
+| `phrase`         | `string`               | ✅       | Key of the needed phrase.                           |
+| `count`          | `number`               | ❌       | A number to be interpolated with `smart_count`.     |
+| `fallback`       | `string`               | ❌       | A fallback to be rendered if the phrase is missing. |
+| `interpolations` | `InterpolationOptions` | ❌       | See `InterpolationOptions` below.                   |
 
 ### `useLocale`
 
@@ -127,10 +128,10 @@ Returns a special function (`t`) which takes in parameters and returns a phrase.
 
 #### `t(phrase, InterpolationOptions)`
 
-| Param                  | Type                                    | Required | Description                                                                                                |
-| ---------------------- | --------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `phrase`               | `string`                                | ✅       | Key of the needed phrase.                                                                                  |
-| `InterpolationOptions` | `number` or `{ [key: string]: string }` | ❌       | A number to be interpolated with `smart_count`, or a key-value pair to interpolate values into the phrase. |
+| Param                  | Type                                       | Required | Description                                                                                                |
+| ---------------------- | ------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `phrase`               | `string`                                   | ✅       | Key of the needed phrase.                                                                                  |
+| `InterpolationOptions` | `number` or `{ [key: string]: ReactNode }` | ❌       | A number to be interpolated with `smart_count`, or a key-value pair to interpolate values into the phrase. |
 
 For more details, please visit the [documentation](https://airbnb.io/polyglot.js) of Polyglot.js.
 
@@ -145,4 +146,4 @@ This project is licensed under the terms of the
 
 ## Acknowledgements
 
-This project is a wrapper to ease the use of [Polyglot.js](https://airbnb.io/polyglot.js) within [React](https://reactjs.org/), and is highly influenced by [`react-polyglot`](https://github.com/nayaabkhan/react-polyglot).
+This project is developed to ease the use of [Polyglot.js](https://airbnb.io/polyglot.js) within [React](https://reactjs.org/), and is highly influenced by [`react-polyglot`](https://github.com/nayaabkhan/react-polyglot).
