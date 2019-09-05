@@ -82,7 +82,7 @@ export default function Child() {
 }
 ```
 
-That's it!
+That's it! For more in-depth examples, check out the [examples](/examples) directory.
 
 ### Usage with TypeScript
 
