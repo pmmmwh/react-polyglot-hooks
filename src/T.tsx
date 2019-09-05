@@ -27,7 +27,7 @@ const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
   if (typeof interpolations !== 'number') {
     cleanInterpolations = interpolations;
   } else {
-    // TODO: Deprecate number from interpolations in v0.3.0
+    // TODO: Deprecate number from interpolations in v0.4.0
     // Handles number interpolation
     cleanInterpolations = { smart_count: interpolations };
     if (process.env.NODE_ENV !== 'production') {
