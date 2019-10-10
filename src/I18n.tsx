@@ -21,8 +21,9 @@ const I18n: React.FC<I18nProps> = ({
   locale,
   phrases,
   allowMissing,
-  onMissingKey,
   interpolation,
+  onMissingKey,
+  pluralRules,
 }) => {
   const polyglot = React.useMemo<Polyglot>(
     // Create a new instance on every change
@@ -32,10 +33,11 @@ const I18n: React.FC<I18nProps> = ({
         locale,
         phrases,
         allowMissing,
-        onMissingKey,
         interpolation,
+        onMissingKey,
+        pluralRules,
       }),
-    [locale, phrases, allowMissing, onMissingKey, interpolation]
+    [locale, phrases, allowMissing, interpolation, onMissingKey, pluralRules]
   );
 
   const polyglotContext = React.useMemo(
