@@ -31,6 +31,6 @@ declare module 'node-polyglot' {
       locale?: string
     ) => string;
     interpolation?: InterpolationParams;
-    pluralRules: PluralRules;
+    pluralRules?: PluralRules;
   }
 }
