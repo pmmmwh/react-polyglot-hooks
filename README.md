@@ -96,14 +96,15 @@ Provides i18n context to the T component and the hooks. Accepts all options supp
 
 #### Props
 
-| Prop            | Type                                                                     | Required | Description                                                                       |
-| --------------- | ------------------------------------------------------------------------ | -------- | --------------------------------------------------------------------------------- |
-| `children`      | `Node`                                                                   | ✅       | Any node(s) accepted by React.                                                    |
-| `locale`        | `string`                                                                 | ✅       | Current locale, used for pluralization.                                           |
-| `phrases`       | `{ [key: string]: string }`                                              | ✅       | Key-value pair of translated phrases, can be nested.                              |
-| `allowMissing`  | `boolean`                                                                | ❌       | Controls whether missing phrase keys in a `t` call is allowed.                    |
-| `onMissingKey`  | `(key: string, options: InterpolationOptions, locale: string) => string` | ❌       | A function called when `allowMissing` is `true` and a missing key is encountered. |
-| `interpolation` | `{ prefix: string, suffix: string }`                                     | ❌       | Controls the prefix and suffix for an interpolation.                              |
+| Prop            | Type                                                                         | Required | Description                                                                       |
+| --------------- | ---------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------- |
+| `children`      | `Node`                                                                       | ✅       | Any node(s) accepted by React.                                                    |
+| `locale`        | `string`                                                                     | ✅       | Current locale, used for pluralization.                                           |
+| `phrases`       | `{ [key: string]: string }`                                                  | ✅       | Key-value pair of translated phrases, can be nested.                              |
+| `allowMissing`  | `boolean`                                                                    | ❌       | Controls whether missing phrase keys in a `t` call is allowed.                    |
+| `interpolation` | `{ prefix: string, suffix: string }`                                         | ❌       | Controls the prefix and suffix for an interpolation.                              |
+| `onMissingKey`  | `(key: string, options: InterpolationOptions, locale: string) => string`     | ❌       | A function called when `allowMissing` is `true` and a missing key is encountered. |
+| `pluralRules`   | `{ pluralTypes: PluralTypes, pluralTypeToLanguages: PluralTypeToLanguages }` | ❌       | Custom pluralization rules to be applied to change language(s) behaviour(s).      |
 
 ### `<T>`
 
