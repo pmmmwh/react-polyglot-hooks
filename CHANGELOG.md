@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.3.0...v0.3.1) (2019-10-10)
+
+### Features
+
+- accept the pluralRules prop with I18n ([0a17568](https://github.com/pmmmwh/react-polyglot-hooks/commit/0a17568))
+- add types to support custom plural rules ([1e9a17a](https://github.com/pmmmwh/react-polyglot-hooks/commit/1e9a17a))
+- make pluralRules optional ([bd71c66](https://github.com/pmmmwh/react-polyglot-hooks/commit/bd71c66))
+
 ## [0.3.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.3.0-0...v0.3.0) (2019-09-05)
 
 ## [0.3.0-0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.2.0...v0.3.0-0) (2019-09-02)
