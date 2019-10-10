@@ -23,7 +23,12 @@ describe('I18n Context', () => {
   it('should only pass locale and t to children via context', () => {
     const readValue = spy();
     const tree = (
-      <I18nContext.Provider value={{ locale: undefined, t: () => undefined }}>
+      <I18nContext.Provider
+        value={{
+          locale: undefined,
+          t: () => (undefined as React.ReactNode) as React.ReactElement,
+        }}
+      >
         <I18nContext.Consumer>
           {values => <ValueTester callback={readValue} value={values} />}
         </I18nContext.Consumer>
