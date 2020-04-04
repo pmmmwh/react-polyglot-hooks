@@ -91,7 +91,7 @@
     "react-dom": "^16.8.0"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10"
   },
   "sideEffects": false
 }
