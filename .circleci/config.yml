@@ -4,10 +4,10 @@ commands:
   restore_yarn_cache:
     steps:
       - restore_cache:
-        name: Restore Dependency Cache
-        keys:
-          - dependencies-v1-{{ checksum "yarn.lock" }}
-          - dependencies-v1-
+          name: Restore Dependency Cache
+          keys:
+            - dependencies-v1-{{ checksum "yarn.lock" }}
+            - dependencies-v1-
 
 executors:
   node:
