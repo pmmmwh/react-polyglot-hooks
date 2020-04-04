@@ -11,7 +11,7 @@ describe('I18n Context', () => {
   let consoleOutput: string[] = [];
   beforeEach(() => {
     console.error = (...args: string[]): void => {
-      args.forEach(arg => consoleOutput.push(arg));
+      args.forEach((arg) => consoleOutput.push(arg));
     };
   });
 
@@ -30,7 +30,7 @@ describe('I18n Context', () => {
         }}
       >
         <I18nContext.Consumer>
-          {values => <ValueTester callback={readValue} value={values} />}
+          {(values) => <ValueTester callback={readValue} value={values} />}
         </I18nContext.Consumer>
       </I18nContext.Provider>
     );
