@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { InterpolationOptions } from 'node-polyglot';
 import { NO_NUMBER_INTERPOLATIONS } from './constants';
 import useT from './useT';
+import type { InterpolationOptions } from 'node-polyglot';
 
 /**
  * Props accepted by the T component.

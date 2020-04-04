@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import { I18n, T } from '..';
 import { NO_NUMBER_INTERPOLATIONS } from '../constants';
+import { I18n, T } from '..';
 
 describe('T Component', () => {
   const originalConsoleWarn = console.warn;
@@ -24,7 +23,7 @@ describe('T Component', () => {
     console.warn = originalConsoleWarn;
   });
 
-  describe('when a phrase is not found', () => {
+  describe('when a phrase cannot be found', () => {
     it('should render the key', () => {
       const tree = (
         <I18n locale="en" phrases={{ phrase: 'Message' }}>
@@ -66,7 +65,7 @@ describe('T Component', () => {
     });
   });
 
-  describe('when a phrase is found', () => {
+  describe('when a phrase can be found', () => {
     it('should render without crashing', () => {
       const tree = (
         <I18n locale="en" phrases={{ phrase: 'Message' }}>

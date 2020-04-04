@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Polyglot, { PolyglotOptions } from 'node-polyglot';
+import Polyglot from 'node-polyglot';
 import enhanceT from './enhanceT';
 import I18nContext from './i18nContext';
+import type { PolyglotOptions } from 'node-polyglot';
 
 /**
  * Props accepted by the I18n component.

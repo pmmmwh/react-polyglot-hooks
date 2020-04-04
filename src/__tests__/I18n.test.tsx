@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { spy } from 'sinon';
 import { ValueTester } from '../../test';
 import I18n, { I18nProps } from '../I18n';

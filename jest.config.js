@@ -2,7 +2,7 @@ module.exports = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!src/**/*.d.ts'],
   coverageDirectory: 'coverage',
-  setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.{js,ts,tsx}',
     '<rootDir>/src/**/*.{spec,test}.{js,ts,tsx}',
