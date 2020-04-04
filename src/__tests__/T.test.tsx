@@ -11,10 +11,10 @@ describe('T Component', () => {
   let consoleOutput: string[] = [];
   beforeEach(() => {
     console.error = (...args: string[]): void => {
-      args.forEach(arg => consoleOutput.push(arg));
+      args.forEach((arg) => consoleOutput.push(arg));
     };
     console.warn = (...args: string[]): void => {
-      args.forEach(arg => consoleOutput.push(arg));
+      args.forEach((arg) => consoleOutput.push(arg));
     };
   });
 

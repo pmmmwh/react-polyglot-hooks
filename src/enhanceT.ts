@@ -33,7 +33,7 @@ const enhanceT = (originalT: PolyglotT) => {
     } else {
       // ReactElement used because cloneElement requires a proper ReactElement
       const elementCache: ReactElement[] = [];
-      Object.keys(interpolations).forEach(key => {
+      Object.keys(interpolations).forEach((key) => {
         // Store all JSX elements into a array cache for processing later
         if (isValidElement(interpolations[key])) {
           elementCache.push(interpolations[key]);

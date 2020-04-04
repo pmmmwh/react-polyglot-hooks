@@ -89,7 +89,7 @@ describe('Enhance T', () => {
     let consoleOutput: string[] = [];
     beforeEach(() => {
       console.error = (...args: string[]): void => {
-        args.forEach(arg => consoleOutput.push(arg));
+        args.forEach((arg) => consoleOutput.push(arg));
       };
     });
 
