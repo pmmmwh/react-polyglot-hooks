@@ -7,7 +7,7 @@ module.exports = {
     '<rootDir>/src/**/__tests__/**/*.{js,ts,tsx}',
     '<rootDir>/src/**/*.{spec,test}.{js,ts,tsx}',
   ],
-  testEnvironment: 'jest-environment-jsdom-fourteen',
+  testEnvironment: 'jest-environment-jsdom-sixteen',
   transform: {
     '^.+\\.(js|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
