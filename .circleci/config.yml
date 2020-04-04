@@ -3,7 +3,7 @@ version: 2.1
 commands:
   restore_yarn_cache:
     steps:
-      restore_cache:
+      - restore_cache:
         name: Restore Dependency Cache
         keys:
           - dependencies-v1-{{ checksum "yarn.lock" }}
