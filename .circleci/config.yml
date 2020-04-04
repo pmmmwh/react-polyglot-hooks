@@ -1,35 +1,30 @@
-aliases:
-  - &environment-settings
-    docker:
-      - image: circleci/node:10.16
-    working_directory: ~/repo
-  - &restore-repo-cache
-    restore_cache:
-      name: Restore Repository Cache
-      keys:
-        - source-v1-{{ .Branch }}-{{ .Revision }}
-        - source-v1-{{ .Branch }}-
-        - source-v1-
-  - &restore-yarn-cache
-    restore_cache:
-      name: Restore Dependency Cache
-      keys:
-        - dependencies-v1-{{ checksum "yarn.lock" }}
-        - dependencies-v1-
+version: 2.1
 
-version: 2
+commands:
+  restore_yarn_cache:
+    steps:
+      restore_cache:
+        name: Restore Dependency Cache
+        keys:
+          - dependencies-v1-{{ checksum "yarn.lock" }}
+          - dependencies-v1-
+
+executors:
+  node:
+    parameters:
+      version:
+        default: latest
+        type: string
+    docker:
+      - image: circleci/node:<< parameters.version >>
+    working_directory: ~/repo
+
 jobs:
   setup:
-    <<: *environment-settings
+    executor: node
     steps:
-      - *restore-repo-cache
       - checkout
-      - save_cache:
-          name: Save Repository Cache
-          key: source-v1-{{ .Branch }}-{{ .Revision }}
-          paths:
-            - .
-      - *restore-yarn-cache
+      - restore_yarn_cache
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
@@ -40,51 +35,72 @@ jobs:
             - node_modules
 
   build:
-    <<: *environment-settings
+    executor: node
     steps:
-      - *restore-repo-cache
-      - *restore-yarn-cache
+      - checkout
+      - restore_yarn_cache
       - run:
           name: Build Library
-          command: yarn run build
+          command: yarn build
 
   quality:
-    <<: *environment-settings
+    executor: node
     steps:
-      - *restore-repo-cache
-      - *restore-yarn-cache
+      - checkout
+      - restore_yarn_cache
       - run:
           name: Setup Reporting Environment
           command: mkdir -p reports/eslint
       - run:
           name: Check Code Quality with ESLint
-          command: yarn run lint:eslint --format junit --output-file $CIRCLE_WORKING_DIRECTORY/reports/eslint/results.xml
+          command: yarn lint --format junit --output-file $CIRCLE_WORKING_DIRECTORY/reports/eslint/results.xml
       - run:
           name: Check Code Style with Prettier
-          command: yarn run lint:prettier
+          command: yarn format:check
       - store_test_results:
           path: reports
 
   test:
-    <<: *environment-settings
+    parameters:
+      node_version:
+        default: latest
+        type: string
+    executor: node:<< parameters.node_version >>
     steps:
-      - *restore-repo-cache
-      - *restore-yarn-cache
+      - checkout
+      - restore_yarn_cache
       - run:
           name: Run tests and generate coverage report
-          command: yarn run test --coverage && yarn codecov
+          command: yarn test --coverage && yarn codecov
 
 workflows:
   version: 2
   pipeline:
     jobs:
       - setup
-      - test:
-          requires:
-            - setup
       - build:
           requires:
             - setup
       - quality:
+          requires:
+            - setup
+      - test:
+          name: test/node:8
+          node_version: 8
+          requires:
+            - setup
+      - test:
+          name: test/node:10
+          node_version: 10
+          requires:
+            - setup
+      - test:
+          name: test/node:12
+          node_version: 12
+          requires:
+            - setup
+      - test:
+          name: test/node:13
+          node_version: 13
           requires:
             - setup
