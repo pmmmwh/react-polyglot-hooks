@@ -65,7 +65,9 @@ jobs:
       node_version:
         default: latest
         type: string
-    executor: node:<< parameters.node_version >>
+    executor:
+      name: node
+      version: << parameters.node_version >>
     steps:
       - checkout
       - restore_yarn_cache
