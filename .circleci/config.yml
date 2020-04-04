@@ -87,11 +87,6 @@ workflows:
           requires:
             - setup
       - test:
-          name: test/node:8
-          node_version: '8'
-          requires:
-            - setup
-      - test:
           name: test/node:10
           node_version: '10'
           requires:
