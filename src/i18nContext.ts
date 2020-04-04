@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NO_POLYGLOT_CONTEXT } from './constants';
-import type { tFunction } from './constants';
+import type { tFunction } from './types';
 
 function warnWithoutContext(
   ...[key]: Parameters<tFunction>

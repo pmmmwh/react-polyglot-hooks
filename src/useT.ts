@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import I18nContext from './i18nContext';
-import type { tFunction } from './constants';
+import type { tFunction } from './types';
 
 /**
  * A hook to consume the t function.

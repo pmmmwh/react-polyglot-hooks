@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { PolyglotT } from './constants';
+import type { PolyglotT } from './types';
 
 /**
  * A pseudo-JSX string interpolation identifier.
