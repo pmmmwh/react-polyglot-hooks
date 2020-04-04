@@ -86,21 +86,21 @@ workflows:
             - setup
       - test:
           name: test/node:8
-          node_version: 8
+          node_version: '8'
           requires:
             - setup
       - test:
           name: test/node:10
-          node_version: 10
+          node_version: '10'
           requires:
             - setup
       - test:
           name: test/node:12
-          node_version: 12
+          node_version: '12'
           requires:
             - setup
       - test:
           name: test/node:13
-          node_version: 13
+          node_version: '13'
           requires:
             - setup
