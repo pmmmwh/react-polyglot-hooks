@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { NO_NUMBER_INTERPOLATIONS } from '../constants';
 import { I18n, T } from '..';
 
 describe('T Component', () => {
@@ -89,17 +88,20 @@ describe('T Component', () => {
       );
     });
 
-    it('should interpolate number as smart count with deprecation warning', () => {
+    it('should not interpolate number as smart count', () => {
       const tree = (
         <I18n locale="en" phrases={{ phrase: 'Interpolated: %{smart_count}' }}>
+          {/*
+          TODO: Update to @ts-expect-error
+          // @ts-ignore */}
           <T phrase="phrase" interpolations={1} />
         </I18n>
       );
       const { getByText } = render(tree);
       expect(getByText(/^Interpolated:/)).toBeInTheDocument();
-      expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: 1');
-      expect(consoleOutput).toHaveLength(1);
-      expect(consoleOutput[0]).toBe(NO_NUMBER_INTERPOLATIONS);
+      expect(getByText(/^Interpolated:/).textContent).toBe(
+        'Interpolated: %{smart_count}'
+      );
     });
 
     it('should interpolate count', () => {

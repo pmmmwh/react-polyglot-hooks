@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { NO_NUMBER_INTERPOLATIONS } from './constants';
 import useT from './useT';
 import type { InterpolationOptions } from 'node-polyglot';
 
@@ -12,7 +11,7 @@ export interface TProps {
   /** A fallback phrase to render when the provided key does not resolve. */
   fallback?: string;
   /** A key-value map of components or strings to be interpolated. */
-  interpolations?: number | InterpolationOptions;
+  interpolations?: InterpolationOptions;
   /** The key of the phrase to render. */
   phrase: string;
 }
@@ -23,24 +22,12 @@ export interface TProps {
 const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
   const t = useT();
 
-  let cleanInterpolations;
-  if (typeof interpolations !== 'number') {
-    cleanInterpolations = interpolations;
-  } else {
-    // TODO: Deprecate number from interpolations in v0.4.0
-    // Handles number interpolation
-    cleanInterpolations = { smart_count: interpolations };
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(NO_NUMBER_INTERPOLATIONS);
-    }
-  }
-
   const tOptions = {
     // Check for truthy prop values before assigning
     // This is done to prevent altering the specific options
     ...(fallback && { _: fallback }),
     ...(count && { smart_count: count }),
-    ...cleanInterpolations,
+    ...interpolations,
   };
 
   // HACK: A workaround for the current limitations of TSX with FC
