@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.3.1...v0.4.0) (2020-04-18)
+
+### ⚠ BREAKING CHANGES
+
+- remove number interpolations for T component
+- bump minimum version of node to 10
+
+### Features
+
+- bump minimum version of node to 10 ([09d19a5](https://github.com/pmmmwh/react-polyglot-hooks/commit/09d19a500f81821c75541ca6312cb01c7776e078))
+- remove number interpolations for T component ([be1a8c2](https://github.com/pmmmwh/react-polyglot-hooks/commit/be1a8c2418e3742ba433dfd2ba230bd35ba01acd))
+
 ### [0.3.1](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.3.0...v0.3.1) (2019-10-10)
 
 ### Features
