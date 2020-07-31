@@ -73,7 +73,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.3",
-    "jest": "^25.2.7",
+    "jest": "^26.2.2",
     "jest-environment-jsdom-sixteen": "1.0.3",
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.1.1",
