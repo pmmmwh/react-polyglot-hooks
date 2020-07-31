@@ -63,7 +63,7 @@
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
-    "babel-jest": "^25.2.6",
+    "babel-jest": "^26.2.2",
     "codecov": "^3.5.0",
     "eslint": "^6.1.0",
     "eslint-config-react-app": "^5.2.1",
