@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.4.0...v0.5.0) (2020-08-01)
+
 ## [0.4.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.3.1...v0.4.0) (2020-04-18)
 
 ### ⚠ BREAKING CHANGES
