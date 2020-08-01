@@ -32,11 +32,11 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --report-unused-disable-directives \"**/*.{js,ts,tsx}\"",
-    "lint:fix": "eslint --fix --report-unused-disable-directives \"**/*.{js,ts,tsx}\"",
+    "lint:fix": "yarn lint --fix",
     "format": "prettier --write \"**/*.{js,ts,tsx,json,md,yml}\"",
     "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,yml}\"",
     "prebuild": "rimraf dist",
-    "release": "yarn run build && standard-version",
+    "release": "yarn build && standard-version",
     "test": "node scripts/test.js",
     "type-check": "tsc --noEmit --pretty"
   },
