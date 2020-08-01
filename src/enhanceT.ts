@@ -27,14 +27,9 @@ const enhanceT = (originalT: PolyglotT) => {
   ): React.ReactElement;
   // We use a named function here to aid debugging
   // ReactNode includes all React render-ables, including arrays
-  function t(
-    ...[key, interpolations]: Parameters<PolyglotT>
-  ): React.ReactElement {
+  function t(...[key, interpolations]: Parameters<PolyglotT>): React.ReactElement {
     if (interpolations === undefined || typeof interpolations === 'number') {
-      return (originalT(
-        key,
-        interpolations
-      ) as React.ReactNode) as React.ReactElement;
+      return (originalT(key, interpolations) as React.ReactNode) as React.ReactElement;
     } else {
       // ReactElement used because cloneElement requires a proper ReactElement
       const elementCache: React.ReactElement[] = [];

@@ -2,9 +2,7 @@ import * as React from 'react';
 import { NO_POLYGLOT_CONTEXT } from './constants';
 import type { tFunction } from './types';
 
-function warnWithoutContext(
-  ...[key]: Parameters<tFunction>
-): ReturnType<tFunction> {
+function warnWithoutContext(...[key]: Parameters<tFunction>): ReturnType<tFunction> {
   if (process.env.NODE_ENV !== 'production') {
     console.error(NO_POLYGLOT_CONTEXT);
   }

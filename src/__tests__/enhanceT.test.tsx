@@ -45,13 +45,9 @@ describe('Enhance T', () => {
   describe('when component interpolations are received', () => {
     it('should interpolate component to a phrase', () => {
       const testComponent = <b data-testid="ComponentID">Component</b>;
-      const { getByTestId } = render(
-        enhancedT('rich_text', { component: testComponent })
-      );
+      const { getByTestId } = render(enhancedT('rich_text', { component: testComponent }));
       expect(getByTestId('ComponentID')).toBeInTheDocument();
-      expect(
-        document.querySelector('b[data-testid="ComponentID"]')
-      ).toBeInTheDocument();
+      expect(document.querySelector('b[data-testid="ComponentID"]')).toBeInTheDocument();
       expect(getByTestId('ComponentID').textContent).toBe('Component');
     });
 
@@ -62,9 +58,7 @@ describe('Enhance T', () => {
       );
       expect(getByText(/^Leading/)).toBeInTheDocument();
       expect(getByTestId('ComponentID')).toBeInTheDocument();
-      expect(getByText(/^Leading/)).toContainElement(
-        getByTestId('ComponentID')
-      );
+      expect(getByText(/^Leading/)).toContainElement(getByTestId('ComponentID'));
       expect(getByText(/^Leading/).textContent).toBe('Leading Component');
     });
 
@@ -75,9 +69,7 @@ describe('Enhance T', () => {
       );
       expect(getByText(/Trailing$/)).toBeInTheDocument();
       expect(getByTestId('ComponentID')).toBeInTheDocument();
-      expect(getByText(/Trailing$/)).toContainElement(
-        getByTestId('ComponentID')
-      );
+      expect(getByText(/Trailing$/)).toContainElement(getByTestId('ComponentID'));
       expect(getByText(/Trailing$/).textContent).toBe('Component Trailing');
     });
   });
@@ -101,9 +93,7 @@ describe('Enhance T', () => {
       const callResult = enhancedT('unavailable');
       expect(callResult).toBe('unavailable');
       expect(consoleOutput).toHaveLength(1);
-      expect(consoleOutput[0]).toBe(
-        'Warning: Missing translation for key: "unavailable"'
-      );
+      expect(consoleOutput[0]).toBe('Warning: Missing translation for key: "unavailable"');
     });
 
     it('should not interpolate without a fallback', () => {
