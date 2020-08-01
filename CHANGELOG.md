@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.4.0...v0.5.0) (2020-08-01)
+
+### ⚠ BREAKING CHANGES
+
+- **deps:** bump all deps (#311)
+
+- **deps:** bump all deps ([#311](https://github.com/pmmmwh/react-polyglot-hooks/issues/311)) ([a18e202](https://github.com/pmmmwh/react-polyglot-hooks/commit/a18e20289253cbe53380544aa929a2ec638a97c8))
+
 ## [0.4.0](https://github.com/pmmmwh/react-polyglot-hooks/compare/v0.3.1...v0.4.0) (2020-04-18)
 
 ### ⚠ BREAKING CHANGES
