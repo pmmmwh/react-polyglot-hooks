@@ -9,9 +9,7 @@ const App = () => {
 
   return (
     <I18n locale={locale} phrases={Phrases[locale]}>
-      <LanguageSwitcher
-        onChange={({ target: { value } }) => setLocale(value)}
-      />
+      <LanguageSwitcher onChange={({ target: { value } }) => setLocale(value)} />
       <br />
       <Translated />
     </I18n>

@@ -51,11 +51,7 @@ describe('T Component', () => {
     it('should allow interpolations to override fallback', () => {
       const tree = (
         <I18n locale="en" phrases={{ phrase: 'Message' }}>
-          <T
-            phrase="unavailable"
-            fallback="Incorrect"
-            interpolations={{ _: 'Fallback' }}
-          />
+          <T phrase="unavailable" fallback="Incorrect" interpolations={{ _: 'Fallback' }} />
         </I18n>
       );
       const { getByText, queryByText } = render(tree);
@@ -83,9 +79,7 @@ describe('T Component', () => {
       );
       const { getByText } = render(tree);
       expect(getByText(/^Interpolated:/)).toBeInTheDocument();
-      expect(getByText(/^Interpolated:/).textContent).toBe(
-        'Interpolated: Success!'
-      );
+      expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: Success!');
     });
 
     it('should not interpolate number as smart count', () => {
@@ -99,9 +93,7 @@ describe('T Component', () => {
       );
       const { getByText } = render(tree);
       expect(getByText(/^Interpolated:/)).toBeInTheDocument();
-      expect(getByText(/^Interpolated:/).textContent).toBe(
-        'Interpolated: %{smart_count}'
-      );
+      expect(getByText(/^Interpolated:/).textContent).toBe('Interpolated: %{smart_count}');
     });
 
     it('should interpolate count', () => {

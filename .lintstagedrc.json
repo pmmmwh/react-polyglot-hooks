@@ -1,7 +1,4 @@
 {
-  "*.{js,ts,tsx}": [
-    "eslint --report-unused-disable-directives",
-    "prettier --write"
-  ],
+  "*.{js,ts,tsx}": ["eslint --report-unused-disable-directives", "prettier --write"],
   "*.{json,md,yml}": "prettier --write"
 }
