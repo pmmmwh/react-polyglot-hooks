@@ -72,7 +72,7 @@ jobs:
 
   test:
     parameters:
-      node_version:
+      node-version:
         default: latest
         type: string
     executor:
