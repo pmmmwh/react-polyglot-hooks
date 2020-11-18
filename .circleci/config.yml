@@ -1,5 +1,12 @@
 version: 2.1
 
+anchors:
+  - &node-version-enum
+    - '10.23'
+    - '12.19'
+    - '14.15'
+    - '15.2'
+
 commands:
   restore_yarn_cache:
     steps:
@@ -13,10 +20,13 @@ executors:
   node:
     parameters:
       version:
-        default: latest
+        default: lts
         type: string
     docker:
-      - image: circleci/node:<< parameters.version >>
+      - image: cimg/node:<< parameters.version >>
+        auth:
+          username: $DOCKER_LOGIN
+          password: $DOCKER_PASSWORD
     working_directory: ~/repo
 
 jobs:
@@ -62,12 +72,12 @@ jobs:
 
   test:
     parameters:
-      node_version:
-        default: latest
+      node-version:
+        default: lts
         type: string
     executor:
       name: node
-      version: << parameters.node_version >>
+      version: << parameters.node-version >>
     steps:
       - checkout
       - restore_yarn_cache
@@ -79,25 +89,21 @@ workflows:
   version: 2
   pipeline:
     jobs:
-      - setup
+      - setup:
+          context: DOCKER_CREDENTIALS
       - build:
+          context: DOCKER_CREDENTIALS
           requires:
             - setup
       - quality:
+          context: DOCKER_CREDENTIALS
           requires:
             - setup
       - test:
-          name: test/node:10
-          node_version: '10'
-          requires:
-            - setup
-      - test:
-          name: test/node:12
-          node_version: '12'
-          requires:
-            - setup
-      - test:
-          name: test/node:13
-          node_version: '13'
+          context: DOCKER_CREDENTIALS
+          matrix:
+            parameters:
+              node-version: *node-version-enum
+          name: test/node:<< matrix.node-version >>
           requires:
             - setup
