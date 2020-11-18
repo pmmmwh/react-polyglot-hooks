@@ -20,10 +20,10 @@ executors:
   node:
     parameters:
       version:
-        default: latest
+        default: lts
         type: string
     docker:
-      - image: circleci/node:<< parameters.version >>
+      - image: cimg/node:<< parameters.version >>
         auth:
           username: $DOCKER_LOGIN
           password: $DOCKER_PASSWORD
@@ -73,7 +73,7 @@ jobs:
   test:
     parameters:
       node-version:
-        default: latest
+        default: lts
         type: string
     executor:
       name: node
