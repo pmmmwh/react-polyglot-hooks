@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: friday
+    time: "23:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - pmmmwh
+  assignees:
+  - pmmmwh
+  labels:
+  - dependencies
+  versioning-strategy: widen
