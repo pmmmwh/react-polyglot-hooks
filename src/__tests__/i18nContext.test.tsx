@@ -26,7 +26,7 @@ describe('I18n Context', () => {
       <I18nContext.Provider
         value={{
           locale: undefined,
-          t: () => (undefined as React.ReactNode) as React.ReactElement,
+          t: () => undefined as React.ReactNode as React.ReactElement,
         }}
       >
         <I18nContext.Consumer>
