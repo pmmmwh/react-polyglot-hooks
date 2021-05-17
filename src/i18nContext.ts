@@ -6,7 +6,7 @@ function warnWithoutContext(...[key]: Parameters<tFunction>): ReturnType<tFuncti
   if (process.env.NODE_ENV !== 'production') {
     console.error(NO_POLYGLOT_CONTEXT);
   }
-  return (key as React.ReactNode) as React.ReactElement;
+  return key as React.ReactNode as React.ReactElement;
 }
 
 /**
