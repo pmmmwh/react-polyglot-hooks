@@ -36,6 +36,7 @@
     "format": "prettier --write \"**/*.{js,ts,tsx,json,md,yml}\"",
     "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,yml}\"",
     "prebuild": "rimraf dist",
+    "prepare": "husky install",
     "release": "yarn build && standard-version",
     "test": "node scripts/test.js",
     "type-check": "tsc --noEmit --pretty"
