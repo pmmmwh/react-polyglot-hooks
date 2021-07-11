@@ -1574,9 +1574,9 @@
   integrity sha512-fZQQafSREFyuZcdWFAExYjBiCL7AUCdgsk80iO0q4yihYYdcIiH28CcuPTGFgLOCC8RlW49GSQxdHwZP+I7CNg==
 
 "@types/node-polyglot@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@types/node-polyglot/-/node-polyglot-2.4.1.tgz#406b9d3fc12b53f8009aa3aa3021613228d63e46"
-  integrity sha512-TmMOqSuxyo71Snxa9SSwkMB1e/UvrTLsKPOYMizkDX2JSDZXeiQXgUBwNwfNtLP879Btq+GwkdsE9ojk7EKITA==
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@types/node-polyglot/-/node-polyglot-2.4.2.tgz#1230dd64a3521e5d11bccb16e2f13bb81c563d65"
+  integrity sha512-Tfx3TU/PBK8vW/BG1TK793EHlVpGnoHUj+DGxOwNOYwZiueLeu7FgksvDdpEyFSw4+AKKiEuiMm8EGUHUR4o6g==
 
 "@types/node@*", "@types/node@^16.0.0":
   version "16.3.1"
