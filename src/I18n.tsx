@@ -8,6 +8,8 @@ import type { PolyglotOptions } from 'node-polyglot';
  * Props accepted by the I18n component.
  */
 export interface I18nProps extends PolyglotOptions {
+  /** The children to consume i18n props. */
+  children?: React.ReactNode;
   /** The current locale. */
   locale: string;
   /** The current key-value map of phrases. */
