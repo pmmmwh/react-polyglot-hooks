@@ -30,9 +30,7 @@ const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
     ...interpolations,
   };
 
-  // HACK: A workaround for the current limitations of TSX with FC
-  // Ref: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20544
-  return t(phrase, tOptions) as unknown as React.ReactElement;
+  return t(phrase, tOptions);
 };
 
 export default T;
