@@ -20,7 +20,7 @@ executors:
   node:
     parameters:
       version:
-        default: '16.14'
+        default: lts
         type: string
     docker:
       - image: cimg/node:<< parameters.version >>
