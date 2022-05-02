@@ -2,10 +2,10 @@ version: 2.1
 
 anchors:
   - &node-version-enum
-    - '10.23'
-    - '12.19'
-    - '14.15'
-    - '15.2'
+    - '12.22'
+    - '14.19'
+    - '16.14'
+    - '18.0'
 
 commands:
   restore_yarn_cache:
@@ -20,7 +20,7 @@ executors:
   node:
     parameters:
       version:
-        default: lts
+        default: '16.14'
         type: string
     docker:
       - image: cimg/node:<< parameters.version >>
