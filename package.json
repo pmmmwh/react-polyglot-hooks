@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/pmmmwh/react-polyglot-hooks#readme",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "lint": "eslint --report-unused-disable-directives \"**/*.{js,mjs,jsx,ts,tsx}\"",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write \"**/*.{js,mjs,jsx,ts,tsx,json,md,yml}\"",

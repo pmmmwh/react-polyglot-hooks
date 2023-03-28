@@ -10,6 +10,8 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist",
+    // Temporarily skipping as Jest types does not match
+    "skipLibCheck": true,
     "strict": true,
     "target": "es5"
   },
