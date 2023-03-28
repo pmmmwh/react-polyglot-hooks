@@ -1,5 +1,7 @@
-import * as React from 'react';
-import { renderHook } from '@testing-library/react-hooks';
+import { describe, expect, it } from '@jest/globals';
+import { renderHook } from '@testing-library/react';
+import type { ReactNode } from 'react';
+
 import { I18n, useT } from '..';
 
 describe('Use T', () => {
@@ -10,7 +12,7 @@ describe('Use T', () => {
   });
 
   it('should return the t function with context', () => {
-    const wrapper: React.FC = ({ children }) => (
+    const wrapper = ({ children }: { children: ReactNode }) => (
       <I18n locale="en" phrases={{}}>
         {children}
       </I18n>

@@ -1,5 +1,6 @@
-import Polyglot from 'node-polyglot';
-import enhanceT from './enhanceT';
+import type Polyglot from 'node-polyglot';
+
+import type enhanceT from './enhanceT';
 
 /**
  * The original t function from Polyglot.js.

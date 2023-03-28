@@ -1,0 +1,5 @@
+{
+  "extends": ".",
+  "include": ["src"],
+  "exclude": ["dist", "node_modules", "scripts", "test", "**/__tests__"]
+}

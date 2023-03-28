@@ -1,5 +1,7 @@
-import * as React from 'react';
-import { renderHook } from '@testing-library/react-hooks';
+import { describe, expect, it } from '@jest/globals';
+import { renderHook } from '@testing-library/react';
+import type { ReactNode } from 'react';
+
 import { I18n, useLocale } from '..';
 
 describe('Use Locale', () => {
@@ -9,7 +11,7 @@ describe('Use Locale', () => {
   });
 
   it('should return the locale string with context', () => {
-    const wrapper: React.FC = ({ children }) => (
+    const wrapper = ({ children }: { children: ReactNode }) => (
       <I18n locale="en" phrases={{}}>
         {children}
       </I18n>

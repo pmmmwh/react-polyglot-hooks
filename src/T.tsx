@@ -1,6 +1,6 @@
-import * as React from 'react';
-import useT from './useT';
 import type { InterpolationOptions } from 'node-polyglot';
+
+import useT from './useT';
 
 /**
  * Props accepted by the T component.
@@ -19,7 +19,7 @@ export interface TProps {
 /**
  * A component to render a translated string.
  */
-const T: React.FC<TProps> = ({ count, fallback, interpolations, phrase }) => {
+const T = ({ count, fallback, interpolations, phrase }: TProps) => {
   const t = useT();
 
   const tOptions = {

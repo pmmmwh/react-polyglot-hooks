@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -13,6 +13,6 @@
     "strict": true,
     "target": "es5"
   },
-  "include": ["src"],
-  "exclude": ["dist", "node_modules", "scripts", "test", "**/__tests__"]
+  "include": [".jest/expect.d.ts", "src"],
+  "exclude": ["dist", "node_modules", "scripts"]
 }

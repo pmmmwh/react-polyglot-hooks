@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { createContext } from 'react';
+
 import { NO_POLYGLOT_CONTEXT } from './constants';
 import type { tFunction } from './types';
 
@@ -6,7 +7,7 @@ function warnWithoutContext(...[key]: Parameters<tFunction>): ReturnType<tFuncti
   if (process.env.NODE_ENV !== 'production') {
     console.error(NO_POLYGLOT_CONTEXT);
   }
-  return key as React.ReactNode as React.ReactElement;
+  return key as unknown as React.ReactElement;
 }
 
 /**
@@ -20,7 +21,7 @@ export interface I18nContextProps {
 /**
  * The central store for i18n related components.
  */
-const I18nContext = React.createContext<I18nContextProps>({
+const I18nContext = createContext<I18nContextProps>({
   locale: undefined,
   t: warnWithoutContext,
 });

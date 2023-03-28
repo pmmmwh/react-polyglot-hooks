@@ -1,5 +1,7 @@
 import { useContext } from 'react';
-import I18nContext, { I18nContextProps } from './i18nContext';
+
+import type { I18nContextProps } from './i18nContext';
+import I18nContext from './i18nContext';
 
 /**
  * A hook to consume the current locale.

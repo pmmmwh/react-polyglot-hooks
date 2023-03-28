@@ -1,13 +1,9 @@
-import * as React from 'react';
-
-interface ValueTesterProps {
-  callback: Function;
-  value: any;
+interface ValueTesterProps<T> {
+  callback(value: T): T;
+  value: T;
 }
 
-const ValueTester: React.FC<ValueTesterProps> = ({ callback, value }) => {
+export default function ValueTester<T>({ callback, value }: ValueTesterProps<T>) {
   callback(value);
   return null;
-};
-
-export default ValueTester;
+}

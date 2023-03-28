@@ -1,6 +1,7 @@
-import * as React from 'react';
+import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import Polyglot from 'node-polyglot';
+
 import enhanceT from '../enhanceT';
 
 describe('Enhance T', () => {
