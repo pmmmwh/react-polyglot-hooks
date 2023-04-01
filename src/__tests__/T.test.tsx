@@ -1,5 +1,6 @@
-import * as React from 'react';
+import { afterEach, beforeEach, describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
+
 import { I18n, T } from '..';
 
 describe('T Component', () => {
@@ -85,9 +86,7 @@ describe('T Component', () => {
     it('should not interpolate number as smart count', () => {
       const tree = (
         <I18n locale="en" phrases={{ phrase: 'Interpolated: %{smart_count}' }}>
-          {/*
-          TODO: Update to @ts-expect-error
-          // @ts-ignore */}
+          {/* @ts-expect-error Unsupported use case*/}
           <T phrase="phrase" interpolations={1} />
         </I18n>
       );

@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { cloneElement, isValidElement } from 'react';
+
 import type { PolyglotT } from './types';
 
 /**
@@ -29,13 +30,13 @@ const enhanceT = (originalT: PolyglotT) => {
   // ReactNode includes all React render-ables, including arrays
   function t(...[key, interpolations]: Parameters<PolyglotT>): React.ReactElement {
     if (interpolations === undefined || typeof interpolations === 'number') {
-      return originalT(key, interpolations) as React.ReactNode as React.ReactElement;
+      return originalT(key, interpolations) as unknown as React.ReactElement;
     } else {
       // ReactElement used because cloneElement requires a proper ReactElement
       const elementCache: React.ReactElement[] = [];
       Object.keys(interpolations).forEach((key) => {
         // Store all JSX elements into an array cache for processing later
-        if (React.isValidElement(interpolations[key])) {
+        if (isValidElement(interpolations[key])) {
           elementCache.push(interpolations[key]);
           interpolations[key] = `<${elementCache.length - 1}/>`;
         }
@@ -44,7 +45,7 @@ const enhanceT = (originalT: PolyglotT) => {
       const tString = originalT(key, interpolations);
       // We can safely return if we don't need to do any element interpolation
       if (!elementCache.length) {
-        return tString as React.ReactNode as React.ReactElement;
+        return tString as unknown as React.ReactElement;
       }
 
       // Split the string into chunks of strings and interpolation indices
@@ -58,7 +59,7 @@ const enhanceT = (originalT: PolyglotT) => {
 
         // Interpolate the element
         renderItems.push(
-          React.cloneElement(
+          cloneElement(
             currentElement,
             // We need a unique key when rendering an array
             { key: currentIndex },
@@ -72,7 +73,7 @@ const enhanceT = (originalT: PolyglotT) => {
         }
       }
 
-      return renderItems as React.ReactNode as React.ReactElement;
+      return renderItems as unknown as React.ReactElement;
     }
   }
 

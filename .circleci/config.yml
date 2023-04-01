@@ -2,9 +2,9 @@ version: 2.1
 
 anchors:
   - &node-version-enum
-    - '14.20'
-    - '16.17'
-    - '18.8'
+    - '14.21'
+    - '16.20'
+    - '18.15'
 
 commands:
   restore_yarn_cache:
@@ -19,7 +19,7 @@ executors:
   node:
     parameters:
       version:
-        default: '16.17'
+        default: '16.20'
         type: string
     docker:
       - image: cimg/node:<< parameters.version >>
@@ -27,6 +27,9 @@ executors:
           username: $DOCKER_LOGIN
           password: $DOCKER_PASSWORD
     working_directory: ~/repo
+
+orbs:
+  codecov: codecov/codecov@3.2.4
 
 jobs:
   setup:
@@ -82,7 +85,8 @@ jobs:
       - restore_yarn_cache
       - run:
           name: Run tests and generate coverage report
-          command: yarn test --coverage && yarn codecov
+          command: yarn test --coverage
+      - codecov/upload
 
 workflows:
   version: 2

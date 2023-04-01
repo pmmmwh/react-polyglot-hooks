@@ -1,9 +1,11 @@
-import * as React from 'react';
+import { describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
-import { spy } from 'sinon';
+
 import { ValueTester } from '../../test';
-import I18n, { I18nProps } from '../I18n';
+import type { I18nProps } from '../I18n';
+import I18n from '../I18n';
 import I18nContext from '../i18nContext';
+import type { tFunction } from '../types';
 
 describe('I18n Provider', () => {
   it('should render without crashing', () => {
@@ -35,7 +37,7 @@ describe('I18n Provider', () => {
   });
 
   it('should provide a working t function from Polyglot', () => {
-    const readValue = spy();
+    const readValue = jest.fn((v: tFunction) => v);
     const tree = (
       <I18n locale="en" phrases={{ phrase: 'Message' }}>
         <I18nContext.Consumer>
@@ -44,14 +46,14 @@ describe('I18n Provider', () => {
       </I18n>
     );
     render(tree);
-    const calledValue = readValue.getCall(0).args[0];
+    const calledValue = readValue.mock.lastCall?.[0];
     expect(typeof calledValue).toBe('function');
-    expect(calledValue.toString()).toContain('function t');
-    expect(calledValue('phrase')).toBe('Message');
+    expect(calledValue!.toString()).toContain('function t');
+    expect(calledValue!('phrase')).toBe('Message');
   });
 
   it('should update after a change in locale', () => {
-    const Tree: React.FC<Pick<I18nProps, 'locale'>> = ({ locale }) => (
+    const Tree = ({ locale }: Pick<I18nProps, 'locale'>) => (
       <I18n locale={locale} phrases={{}}>
         <I18nContext.Consumer>
           {({ locale }) => <span>Received: {locale}</span>}
@@ -66,8 +68,8 @@ describe('I18n Provider', () => {
   });
 
   it('should update after a change in phrases', () => {
-    const readValue = spy();
-    const Tree: React.FC<Pick<I18nProps, 'phrases'>> = ({ phrases }) => (
+    const readValue = jest.fn((v: tFunction) => v);
+    const Tree = ({ phrases }: Pick<I18nProps, 'phrases'>) => (
       <I18n locale="en" phrases={phrases}>
         <I18nContext.Consumer>
           {({ t }) => <ValueTester callback={readValue} value={t} />}
@@ -75,13 +77,13 @@ describe('I18n Provider', () => {
       </I18n>
     );
     const { rerender } = render(<Tree phrases={{ test: 'Test' }} />);
-    const firstValue = readValue.getCall(0).args[0];
+    const firstValue = readValue.mock.lastCall?.[0];
     expect(typeof firstValue).toBe('function');
-    expect(firstValue('test')).toBe('Test');
+    expect(firstValue!('test')).toBe('Test');
 
     rerender(<Tree phrases={{ test: 'Expected' }} />);
-    const secondValue = readValue.getCall(1).args[0];
+    const secondValue = readValue.mock.lastCall?.[0];
     expect(typeof secondValue).toBe('function');
-    expect(secondValue('test')).toBe('Expected');
+    expect(secondValue!('test')).toBe('Expected');
   });
 });

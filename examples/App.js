@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import I18n from 'react-polyglot-hooks';
+
 import { LanguageSwitcher, Translated } from './components';
 import Phrases from './phrases';
 

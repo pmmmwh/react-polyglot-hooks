@@ -1,8 +1,9 @@
-import * as React from 'react';
+import type { PolyglotOptions } from 'node-polyglot';
 import Polyglot from 'node-polyglot';
+import { useMemo } from 'react';
+
 import enhanceT from './enhanceT';
 import I18nContext from './i18nContext';
-import type { PolyglotOptions } from 'node-polyglot';
 
 /**
  * Props accepted by the I18n component.
@@ -19,7 +20,7 @@ export interface I18nProps extends PolyglotOptions {
 /**
  * A component to allow consumption of i18n props from any nested children.
  */
-const I18n: React.FC<I18nProps> = ({
+const I18n = ({
   children,
   locale,
   phrases,
@@ -27,8 +28,8 @@ const I18n: React.FC<I18nProps> = ({
   interpolation,
   onMissingKey,
   pluralRules,
-}) => {
-  const polyglot = React.useMemo<Polyglot>(
+}: I18nProps) => {
+  const polyglot = useMemo<Polyglot>(
     // Create a new instance on every change
     // This make sure we always consume the latest phrases and Polyglot context
     () =>
@@ -43,7 +44,7 @@ const I18n: React.FC<I18nProps> = ({
     [locale, phrases, allowMissing, interpolation, onMissingKey, pluralRules]
   );
 
-  const polyglotContext = React.useMemo(
+  const polyglotContext = useMemo(
     () => ({
       locale: polyglot.locale(),
       t: enhanceT(polyglot.t.bind(polyglot)),
