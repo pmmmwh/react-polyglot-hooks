@@ -695,7 +695,7 @@
     "@babel/helper-module-transforms" "^7.20.11"
     "@babel/helper-plugin-utils" "^7.20.2"
 
-"@babel/plugin-transform-modules-commonjs@^7.21.2", "@babel/plugin-transform-modules-commonjs@^7.21.5":
+"@babel/plugin-transform-modules-commonjs@^7.21.5":
   version "7.21.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.21.5.tgz#d69fb947eed51af91de82e4708f676864e5e47bc"
   integrity sha512-OVryBEgKUbtqMoB7eG2rs6UFexJi6Zj6FDXx+esBLPTCxCNxAY9o+8Di7IsUGJ+AVhp5ncK0fxWUBd0/1gPhrQ==
@@ -1052,9 +1052,9 @@
     yargs "^17.0.0"
 
 "@commitlint/config-conventional@^17.0.0":
-  version "17.6.1"
-  resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-17.6.1.tgz#ab07c82c88f99ffee89ae321f1f49f1798127fbb"
-  integrity sha512-ng/ybaSLuTCH9F+7uavSOnEQ9EFMl7lHEjfAEgRh1hwmEe8SpLKpQeMo2aT1IWvHaGMuTb+gjfbzoRf2IR23NQ==
+  version "17.6.3"
+  resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-17.6.3.tgz#21f5835235493e386effeaa98b898124230b1000"
+  integrity sha512-bLyHEjjRWqlLQWIgYFHmUPbEFMOOLXeF3QbUinDIJev/u9e769tkoTH9YPknEywiuIrAgZaVo+OfzAIsJP0fsw==
   dependencies:
     conventional-changelog-conventionalcommits "^5.0.0"
 
