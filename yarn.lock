@@ -1587,18 +1587,6 @@
     "@types/yargs" "^17.0.8"
     chalk "^4.0.0"
 
-"@jest/types@^29.6.3":
-  version "29.6.3"
-  resolved "https://registry.yarnpkg.com/@jest/types/-/types-29.6.3.tgz#1131f8cf634e7e84c5e77bab12f052af585fba59"
-  integrity sha512-u3UPsIilWKOM3F9CXtrG8LEJmNxwoCQC/XVj4IKYXvvpx7QIi/Kg1LI5uDmDpKlac62NUtX7eLjRh+jVZcLOzw==
-  dependencies:
-    "@jest/schemas" "^29.6.3"
-    "@types/istanbul-lib-coverage" "^2.0.0"
-    "@types/istanbul-reports" "^3.0.0"
-    "@types/node" "*"
-    "@types/yargs" "^17.0.8"
-    chalk "^4.0.0"
-
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz#e5d2e450306a9491e3bd77e323e38d7aff315996"
@@ -1856,9 +1844,9 @@
   integrity sha512-Tfx3TU/PBK8vW/BG1TK793EHlVpGnoHUj+DGxOwNOYwZiueLeu7FgksvDdpEyFSw4+AKKiEuiMm8EGUHUR4o6g==
 
 "@types/node@*", "@types/node@^20.1.0":
-  version "20.5.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.6.tgz#5e9aaa86be03a09decafd61b128d6cec64a5fe40"
-  integrity sha512-Gi5wRGPbbyOTX+4Y2iULQ27oUPrefaB0PxGQJnfyWN3kvEDGM3mIB5M/gQLmitZf7A9FmLeaqxD3L1CXpm3VKQ==
+  version "20.5.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.8.tgz#fb171fd22d37ca6e2ea97fde88e6a13ee14bc327"
+  integrity sha512-eajsR9aeljqNhK028VG0Wuw+OaY5LLxYmxeoXynIoE6jannr9/Ucd1LL0hSSoafk5LTYG+FfqsyGt81Q6Zkybw==
 
 "@types/node@20.4.7":
   version "20.4.7"
@@ -4567,18 +4555,6 @@ jest-snapshot@^29.6.2:
     semver "^7.5.3"
 
 jest-util@^29.5.0, jest-util@^29.6.2, jest-util@^29.6.3:
-  version "29.6.3"
-  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-29.6.3.tgz#e15c3eac8716440d1ed076f09bc63ace1aebca63"
-  integrity sha512-QUjna/xSy4B32fzcKTSz1w7YYzgiHrjjJjevdRf61HYk998R5vVMMNmrHESYZVDS5DSWs+1srPLPKxXPkeSDOA==
-  dependencies:
-    "@jest/types" "^29.6.3"
-    "@types/node" "*"
-    chalk "^4.0.0"
-    ci-info "^3.2.0"
-    graceful-fs "^4.2.9"
-    picomatch "^2.2.3"
-
-jest-util@^29.6.3:
   version "29.6.3"
   resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-29.6.3.tgz#e15c3eac8716440d1ed076f09bc63ace1aebca63"
   integrity sha512-QUjna/xSy4B32fzcKTSz1w7YYzgiHrjjJjevdRf61HYk998R5vVMMNmrHESYZVDS5DSWs+1srPLPKxXPkeSDOA==
