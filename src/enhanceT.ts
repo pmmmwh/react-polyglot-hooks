@@ -24,7 +24,7 @@ const enhanceT = (originalT: PolyglotT) => {
   // The overload included here is to aid code auto-completion
   function t(
     key: Parameters<PolyglotT>[0],
-    interpolations?: Parameters<PolyglotT>[1]
+    interpolations?: Parameters<PolyglotT>[1],
   ): React.ReactElement;
   // We use a named function here to aid debugging
   // ReactNode includes all React render-ables, including arrays
@@ -63,8 +63,8 @@ const enhanceT = (originalT: PolyglotT) => {
             currentElement,
             // We need a unique key when rendering an array
             { key: currentIndex },
-            currentElement.props.children
-          )
+            currentElement.props.children,
+          ),
         );
 
         // Interpolate any trailing string

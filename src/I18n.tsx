@@ -41,7 +41,7 @@ const I18n = ({
         onMissingKey,
         pluralRules,
       }),
-    [locale, phrases, allowMissing, interpolation, onMissingKey, pluralRules]
+    [locale, phrases, allowMissing, interpolation, onMissingKey, pluralRules],
   );
 
   const polyglotContext = useMemo(
@@ -49,7 +49,7 @@ const I18n = ({
       locale: polyglot.locale(),
       t: enhanceT(polyglot.t.bind(polyglot)),
     }),
-    [polyglot]
+    [polyglot],
   );
 
   return (
