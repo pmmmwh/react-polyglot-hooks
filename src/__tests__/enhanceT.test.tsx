@@ -55,7 +55,7 @@ describe('Enhance T', () => {
     it('should interpolate component with leading string to a phrase', () => {
       const testComponent = <b data-testid="ComponentID">Component</b>;
       const { getByText, getByTestId } = render(
-        enhancedT('rich_text_leading', { component: testComponent })
+        enhancedT('rich_text_leading', { component: testComponent }),
       );
       expect(getByText(/^Leading/)).toBeInTheDocument();
       expect(getByTestId('ComponentID')).toBeInTheDocument();
@@ -66,7 +66,7 @@ describe('Enhance T', () => {
     it('should interpolate component with trailing string to a phrase', () => {
       const testComponent = <b data-testid="ComponentID">Component</b>;
       const { getByText, getByTestId } = render(
-        enhancedT('rich_text_trailing', { component: testComponent })
+        enhancedT('rich_text_trailing', { component: testComponent }),
       );
       expect(getByText(/Trailing$/)).toBeInTheDocument();
       expect(getByTestId('ComponentID')).toBeInTheDocument();
