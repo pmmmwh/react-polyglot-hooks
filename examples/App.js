@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import I18n from 'react-polyglot-hooks';
 
 import { LanguageSwitcher, Translated } from './components';
@@ -17,4 +17,6 @@ const App = () => {
   );
 };
 
-render(<App />, document.getElementById('app'));
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<App />);
