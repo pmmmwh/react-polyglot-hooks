@@ -13,8 +13,8 @@
     // Temporarily skipping as Jest types does not match
     "skipLibCheck": true,
     "strict": true,
-    "target": "es5",
+    "target": "es5"
   },
   "include": [".jest/expect.d.ts", "src"],
-  "exclude": ["dist", "node_modules", "scripts"],
+  "exclude": ["dist", "node_modules", "scripts"]
 }
