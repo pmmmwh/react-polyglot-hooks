@@ -77,7 +77,7 @@
     "react-dom": "^18.0.0",
     "rimraf": "^5.0.0",
     "standard-version": "^9.0.0",
-    "typescript": "5.5.2"
+    "typescript": "5.5.3"
   },
   "peerDependencies": {
     "react": "^16.8.0 || 17.x || 18.x",
