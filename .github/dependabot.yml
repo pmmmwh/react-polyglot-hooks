@@ -12,4 +12,8 @@ updates:
       - pmmmwh
     labels:
       - dependencies
+    groups:
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint/*"
     versioning-strategy: widen
