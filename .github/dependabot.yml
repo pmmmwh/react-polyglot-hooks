@@ -13,6 +13,9 @@ updates:
     labels:
       - dependencies
     groups:
+      babel:
+        patterns:
+          - '@babel/*'
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
