@@ -16,6 +16,9 @@ updates:
       babel:
         patterns:
           - '@babel/*'
+      commitlint:
+        patterns:
+          - '@commitlint/*'
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
