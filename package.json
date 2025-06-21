@@ -52,7 +52,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
-    "@jest/globals": "^29.5.0",
+    "@jest/globals": "^30.0.2",
     "@testing-library/jest-dom": "^6.1.2",
     "@testing-library/react": "^15.0.2",
     "@types/node": "^22.1.0",
