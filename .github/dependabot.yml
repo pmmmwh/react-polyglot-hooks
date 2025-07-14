@@ -6,8 +6,6 @@ updates:
       interval: weekly
       day: saturday
     open-pull-requests-limit: 10
-    reviewers:
-      - pmmmwh
     assignees:
       - pmmmwh
     labels:
@@ -19,6 +17,11 @@ updates:
       commitlint:
         patterns:
           - '@commitlint/*'
+      jest:
+        patterns:
+          - '@jest/*'
+          - 'jest'
+          - 'jest-*'
       typescript-eslint:
         patterns:
           - '@typescript-eslint/*'
