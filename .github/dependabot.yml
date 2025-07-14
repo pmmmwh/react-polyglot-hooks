@@ -20,6 +20,7 @@ updates:
       jest:
         patterns:
           - '@jest/*'
+          - 'babel-jest'
           - 'jest'
           - 'jest-*'
       typescript-eslint:
