@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          cache: yarn
+          node-version: 24.x
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check linting
+        run: yarn lint
+
+      - name: Check formatting
+        run: yarn format:check
+
+      - name: Build library
+        run: yarn build
+
+      - name: Run tests
+        run: yarn test --coverage
