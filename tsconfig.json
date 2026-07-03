@@ -7,13 +7,13 @@
     "importHelpers": true,
     "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "node16",
+    "moduleResolution": "node16",
     "outDir": "./dist",
     // Temporarily skipping as Jest types does not match
     "skipLibCheck": true,
     "strict": true,
-    "target": "es5"
+    "target": "es2018"
   },
   "include": [".jest/expect.d.ts", "src"],
   "exclude": ["dist", "node_modules", "scripts"]
