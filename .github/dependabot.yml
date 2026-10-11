@@ -17,13 +17,14 @@ updates:
       commitlint:
         patterns:
           - '@commitlint/*'
+      eslint:
+        patterns:
+          - '@eslint/*'
+          - 'eslint'
       jest:
         patterns:
           - '@jest/*'
           - 'babel-jest'
           - 'jest'
           - 'jest-*'
-      typescript-eslint:
-        patterns:
-          - '@typescript-eslint/*'
     versioning-strategy: widen
