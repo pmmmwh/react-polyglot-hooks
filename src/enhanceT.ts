@@ -59,12 +59,9 @@ const enhanceT = (originalT: PolyglotT) => {
 
         // Interpolate the element
         renderItems.push(
-          cloneElement(
-            currentElement,
-            // We need a unique key when rendering an array
-            { key: currentIndex },
-            currentElement.props.children,
-          ),
+          // Caller-provided elements need a key to be rendered as array items
+          // eslint-disable-next-line @eslint-react/no-clone-element
+          cloneElement(currentElement, { key: currentIndex }, currentElement.props.children),
         );
 
         // Interpolate any trailing string

@@ -1,7 +1,7 @@
 import js from '@eslint/js';
+import eslintReact from '@eslint-react/eslint-plugin';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
-import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
@@ -12,13 +12,17 @@ export default defineConfig([
   {
     extends: [
       js.configs.recommended,
-      react.configs.flat.recommended,
-      react.configs.flat['jsx-runtime'],
+      eslintReact.configs.recommended,
       reactHooks.configs.flat.recommended,
     ],
     languageOptions: {
       ecmaVersion: 2018,
       sourceType: 'module',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {
         ...globals.browser,
         ...globals.es2018,
@@ -28,14 +32,8 @@ export default defineConfig([
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      'react/prop-types': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
     },
   },
   {
